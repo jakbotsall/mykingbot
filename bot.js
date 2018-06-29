@@ -380,27 +380,44 @@ message.author.sendEmbed(embed)
    
 
    
-client.on("message", message => {
-  var prefix = "*";
+client.on('message', message => {
+   if(!message.channel.guild) return;
+if(message.content.startsWith(prefix + 'clear')) {
+if(!message.channel.guild) return message.channel.send('**هذا الامر فقط في السيرفرات**').then(m => m.delete(5000));
+if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**لا تمتلك صلاحية** `ADMINISTRATOR`' );
+let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
+let request = `Requested By ${message.author.username}`;
+message.channel.send(`**هل انت متاكد من مسح الشات ؟**`).then(msg => {
+msg.react('✅')
+.then(() => msg.react('❌'))
+.then(() =>msg.react('✅'))
 
-          var args = message.content.substring(prefix.length).split(" ");
-          if (message.content.startsWith(prefix + "clear")) {
- if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
-      var msg;
-      msg = parseInt();
-    
-    message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-    message.channel.sendMessage("", {embed: {
-      title: "Done | تــم",
-      color: 0x06DF00,
-      description: "تم مسح الرسائل بنجاح",
-      footer: {
-        text: "King | Bot."
-      }
-    }}).then(msg => {msg.delete(3000)});
-                        }
+let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
 
-   
+let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
+let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
+reaction1.on("collect", r => {
+message.channel.send(`سيتم مسح الشات`).then(m => m.delete(5000));
+var msg;
+        msg = parseInt();
+
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "`` تم مسح الشات ``",
+        color: 0x06DF00,
+        footer: {
+
+        }
+      }}).then(msg => {msg.delete(3000)});
+
+})
+reaction2.on("collect", r => {
+message.channel.send(`**تم الغاء مسح الشات**`).then(m => m.delete(5000));
+msg.delete();
+})
+})
+}
 });
    
    
