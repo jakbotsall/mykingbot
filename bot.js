@@ -339,6 +339,8 @@ const embed = new Discord.RichEmbed()
 
 :closed_lock_with_key: *bc  『للبرودكاست』 
 
+:closed_lock_with_key: *deletall  『لحذف كل الرومات و الرولات من السيرفر』 
+
 :closed_lock_with_key: *color  『لانشاء رتب الوان مع اختيار رقم الرتب اللي تبيه』
 
 :closed_lock_with_key: *move all  『سحب جميع الأعضاء لرومك الصوتي』
