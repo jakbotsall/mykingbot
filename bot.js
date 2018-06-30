@@ -743,8 +743,6 @@ if (message.member.voiceChannel == null) return message.channel.send(`**الرج
 
 :video_game:  *مريم       
 
-:video_game:  *حكم      
-
 :video_game:  *خواطر                      
                      
 :video_game:  *rps  『لعبة حجر ورقة مقص』                  
@@ -1455,31 +1453,6 @@ const zead = [
 
 
 
-
-const secreT = [
-"**الحياة بكل ما فيها تقف دائمًا على حد الوسطية بين اتزان المعنى وضده من حب وكره وحق وباطل وعدل وظلم**.",
-"**كى تعيش عليك ان تتقن فن التجاهل باحتراف**.",
-"**لا تحزن على من اشعرك بان طيبتك غباء امام وقاحته**.",
-"**هناك من يحلم بالنجاح وهناك من يستيقظ باكرا لتحقيقه**.",
-"**ان تعالج ألمك بنفسك تلك هى القوة**.", 
-"**الجميع يسمع ما تقول والاصدقاء ينصتون لما تقول وافضل الاصدقاء ينصتون لما اخفاه سكوتك**.", 
-"**انتهى زمن الفروسية ، لم تنقرض الخيول بل انقرض الفرسان**.", 
-"**ان تكون اخرسا عاقلا خير من ان تكون نطوقا جهولا**.", 
-"**المناقشات العقيمة لا تنجب افكارا**.", 
-"**نحن نكتب ما لا نستطيع ان نقول وما نريد ان يكون**.", 
-"**نحن نكتب ما لا نستطيع ان نقول وما نريد ان يكون**.", 
-]
-  client.on('message', message => {
-	  	var prefix = "*"
-  if (message.content.startsWith(prefix + 'حكم')) {
-   var mariam= new Discord.RichEmbed()
-   .setTitle("Legend Brmoon.")
-   .setColor('RANDOM')
-   .setDescription(`${kingmas[Math.floor(Math.random() * kingmas.length)]}`)
-    message.channel.sendEmbed(mariam);
-    message.react(":thinking:")
-   }
- });
 
 
 
