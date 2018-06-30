@@ -1532,7 +1532,7 @@ client.on('guildMemberAdd', member => {
        .setAuthor(`${member.user.tag}`, member.user.avatarURL)
        .setThumbnail(memberavatar)
        .setColor('GREEN')
-       .setDescription(`📥 <@${member.user.id}> **Joined To The Server**\n\n`)
+       .setDescription(` <@${member.user.id}> **Joined To The Server**\n\n`)
        .setTimestamp();
      channel.send({embed:embed});
 });
@@ -1550,7 +1550,7 @@ client.on('guildMemberRemove', member => {
        .setAuthor(`${member.user.tag}`, member.user.avatarURL)
        .setThumbnail(memberavatar)
        .setColor('RED')
-       .setDescription(`📤 <@${member.user.id}> **Leave From Server**\n\n`)
+       .setDescription(` <@${member.user.id}> **Leave From Server**\n\n`)
        .setTimestamp();
      channel.send({embed:embed});
 });
