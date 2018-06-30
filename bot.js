@@ -1480,7 +1480,7 @@ client.on("channelCreate",  cc => {
   if(channel) {
   var embed = new Discord.RichEmbed()
   .setTitle(cc.guild.name)
-  .setDescription(`***Channel Created Name : *** **${cc.name}** ⬅️`)
+  .setDescription(`***Channel Created Name : *** **${cc.name}** `)
   .setColor(`RANDOM`)
   .setTimestamp();
   channel.sendEmbed(embed)
@@ -1492,7 +1492,7 @@ client.on("channelCreate",  cc => {
   if(channel) {
   var embed = new Discord.RichEmbed()
   .setTitle(dc.guild.name)
-  .setDescription(`***Channel Deleted Name : *** **${dc.name}** ⬅️`)
+  .setDescription(`***Channel Deleted Name : *** **${dc.name}** `)
   .setColor(`RANDOM`)
   .setTimestamp();
   channel.sendEmbed(embed)
@@ -1510,7 +1510,7 @@ client.on("channelCreate",  cc => {
     let embed = new Discord.RichEmbed()
        .setAuthor(`${message.author.tag}`, message.author.avatarURL)
        .setColor('SILVER')
-       .setDescription(`✏ **تعديل رساله
+       .setDescription(` **تعديل رساله
 ارسلها <@${message.author.id}>                                                                                                                         تم تعديلها في شات** <#${message.channel.id}>\n\nقبل التعديل:\n \`${message.cleanContent}\`\n\nبعد التعديل:\n \`${newMessage.cleanContent}\``)
        .setTimestamp();
      channel.send({embed:embed});
@@ -1526,7 +1526,7 @@ client.on('guildMemberAdd', member => {
     if (!channel) return;
     let memberavatar = member.user.avatarURL
     const fromNow = moment(member.user.createdTimestamp).fromNow();
-    const isNew = (new Date() - member.user.createdTimestamp) < 900000 ? '🆕' : '';
+    const isNew = (new Date() - member.user.createdTimestamp) < 900000 ? '' : '';
    
     let embed = new Discord.RichEmbed()
        .setAuthor(`${member.user.tag}`, member.user.avatarURL)
@@ -1563,7 +1563,7 @@ client.on('messageDelete', message => {
     let embed = new Discord.RichEmbed()
        .setAuthor(`${message.author.tag}`, message.author.avatarURL)
        .setColor('BLACK')
-       .setDescription(`🗑️ **حذف رساله**
+       .setDescription(` **حذف رساله**
 **ارسلها <@${message.author.id}>                                                                                                                        تم حذفها في شات** <#${message.channel.id}>\n\n \`${message.cleanContent}\``)
        .setTimestamp();
      channel.send({embed:embed});
