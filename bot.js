@@ -213,31 +213,25 @@ Rooms📚 ${client.channels.size} `)
 
 
 
-  client.on('message', message => {
-    if (message.content === "*server") {
-        if (!message.channel.guild) return;
-        const millis = new Date().getTime() - message.guild.createdAt.getTime();
-        const now = new Date();
-
-        const days = millis / 1000 / 60 / 60 / 24;
-        let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
-        var embed = new Discord.RichEmbed()
-		.setAuthor(message.guild.name, message.guild.iconURL)
-		.addField("**server Owner**","**"+ message.guild.owner + "**", true)
-		 .addField("**Server ID**", "**" + message.guild.id + "**", true)
-		 .addField("**Server Location**", "**" + message.guild.region + "**", true)
-            .addField('**Server Text Channels**', `**[ ${message.guild.channels.filter(m => m.type === 'text').size} ] Channel **`, true)
-            .addField("**Server Voice Channels**", ` ** [ ${message.guild.channels.filter(m => m.type === 'voice').size} ] Channel ** `, true)
-            .addField("**Date created**", ` ** [ ${days.toFixed(0)} ] ** Day `, true)
-            .addField("**Roles**", `**[${message.guild.roles.size}]** Role `, true)
-       .addField("Members", `
-**${message.guild.memberCount}**`)
-            .setThumbnail(message.guild.iconURL)
-            .setColor('RANDOM')
-        message.channel.sendEmbed(embed)
-
+client.on('message', function(msg) {
+    const prefix = '*'
+    if(msg.content.startsWith (prefix  + 'server')) {
+      let embed = new Discord.RichEmbed()
+      .setColor('RANDOM')
+      .setThumbnail(msg.guild.iconURL)
+      .setTitle(`Showing Details Of  **${msg.guild.name}*`)
+      .addField('🌐** نوع السيرفر**',`[** __${msg.guild.region}__ **]`,true)
+      .addField('🏅** __الرتب__**',`[** __${msg.guild.roles.size}__ **]`,true)
+      .addField('🔴**__ عدد الاعضاء__**',`[** __${msg.guild.memberCount}__ **]`,true)
+      .addField('🔵**__ عدد الاعضاء الاونلاين__**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
+      .addField('📝**__ الرومات الكتابية__**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
+      .addField('🎤**__ رومات الصوت__**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
+      .addField('👑**__ الأونـر__**',`**${msg.guild.owner}**`,true)
+      .addField('🆔**__ ايدي السيرفر__**',`**${msg.guild.id}**`,true)
+      .addField('📅**__ تم عمل السيرفر في__**',msg.guild.createdAt.toLocaleString())
+      msg.channel.send({embed:embed});
     }
-});
+  });
   
   
   
