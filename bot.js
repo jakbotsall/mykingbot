@@ -4,7 +4,6 @@ const ytdl = require('ytdl-core');
 const request = require('request');
 const devs = ['244888652004458497'];
 const child_process = require("child_process");
-const adminprefix = "!";
 const fs = require('fs');
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
@@ -1550,28 +1549,7 @@ client.on('message', message => {
 
 
 
-/*
-////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
-////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
-////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
-////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
-*/
-var servers = [];
-var queue = [];
-var guilds = [];
-var queueNames = [];
-var isPlaying = false;
-var dispatcher = null;
-var voiceChannel = null;
-var skipReq = 0;
-var skippers = [];
-var now_playing = [];
-/*
-\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////
-\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////
-\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////
-\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////
-*/
+
 client.on('ready', () => {});
 console.log("Logged")
 var download = function(uri, filename, callback) {
