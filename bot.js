@@ -1456,7 +1456,7 @@ const zead = [
   if(channel) {
   var embed = new Discord.RichEmbed()
   .setTitle(rc.guild.name)
-  .setDescription(`***Created Role Name : *** **${rc.name}** `)
+  .setDescription(`***Created Role Name:new:  : *** **${rc.name}** `)
   .setColor(`RANDOM`)
   .setTimestamp();
   channel.sendEmbed(embed)
@@ -1468,7 +1468,7 @@ const zead = [
   if(channel) {
   var embed = new Discord.RichEmbed()
   .setTitle(rd.guild.name)
-  .setDescription(`***Deleted Role Name : *** **${rd.name}** `)
+  .setDescription(`***Deleted Role Name:no_entry:  : *** **${rd.name}** `)
   .setColor(`RANDOM`)
   .setTimestamp();
   channel.sendEmbed(embed)
@@ -1480,7 +1480,7 @@ client.on("channelCreate",  cc => {
   if(channel) {
   var embed = new Discord.RichEmbed()
   .setTitle(cc.guild.name)
-  .setDescription(`***Channel Created Name : *** **${cc.name}** `)
+  .setDescription(`***Channel Created Name:new:  : *** **${cc.name}** `)
   .setColor(`RANDOM`)
   .setTimestamp();
   channel.sendEmbed(embed)
@@ -1492,7 +1492,7 @@ client.on("channelCreate",  cc => {
   if(channel) {
   var embed = new Discord.RichEmbed()
   .setTitle(dc.guild.name)
-  .setDescription(`***Channel Deleted Name : *** **${dc.name}** `)
+  .setDescription(`***Channel Deleted Name:no_entry:  : *** **${dc.name}** `)
   .setColor(`RANDOM`)
   .setTimestamp();
   channel.sendEmbed(embed)
@@ -1510,7 +1510,7 @@ client.on("channelCreate",  cc => {
     let embed = new Discord.RichEmbed()
        .setAuthor(`${message.author.tag}`, message.author.avatarURL)
        .setColor('SILVER')
-       .setDescription(` **تعديل رساله
+       .setDescription(` **:new: تعديل رساله
 ارسلها <@${message.author.id}>                                                                                                                         تم تعديلها في شات** <#${message.channel.id}>\n\nقبل التعديل:\n \`${message.cleanContent}\`\n\nبعد التعديل:\n \`${newMessage.cleanContent}\``)
        .setTimestamp();
      channel.send({embed:embed});
@@ -1526,13 +1526,13 @@ client.on('guildMemberAdd', member => {
     if (!channel) return;
     let memberavatar = member.user.avatarURL
     const fromNow = moment(member.user.createdTimestamp).fromNow();
-    const isNew = (new Date() - member.user.createdTimestamp) < 900000 ? '' : '';
+    const isNew = (new Date() - member.user.createdTimestamp) < 900000 ? ':video_game: ' : '';
    
     let embed = new Discord.RichEmbed()
        .setAuthor(`${member.user.tag}`, member.user.avatarURL)
        .setThumbnail(memberavatar)
        .setColor('GREEN')
-       .setDescription(` <@${member.user.id}> **Joined To The Server**\n\n`)
+       .setDescription(` <@${member.user.id}> **:tada: Joined To The Server:tada: **\n\n`)
        .setTimestamp();
      channel.send({embed:embed});
 });
@@ -1550,7 +1550,7 @@ client.on('guildMemberRemove', member => {
        .setAuthor(`${member.user.tag}`, member.user.avatarURL)
        .setThumbnail(memberavatar)
        .setColor('RED')
-       .setDescription(` <@${member.user.id}> **Leave From Server**\n\n`)
+       .setDescription(` <@${member.user.id}> **:disappointed_relieved: Leave From Server:disappointed_relieved: **\n\n`)
        .setTimestamp();
      channel.send({embed:embed});
 });
@@ -1563,7 +1563,7 @@ client.on('messageDelete', message => {
     let embed = new Discord.RichEmbed()
        .setAuthor(`${message.author.tag}`, message.author.avatarURL)
        .setColor('BLACK')
-       .setDescription(` **حذف رساله**
+       .setDescription(` **حذف رساله:new: **
 **ارسلها <@${message.author.id}>                                                                                                                        تم حذفها في شات** <#${message.channel.id}>\n\n \`${message.cleanContent}\``)
        .setTimestamp();
      channel.send({embed:embed});
