@@ -368,6 +368,8 @@ client.on('message', message => {
 .addField(':closed_lock_with_key: اوامـــر الادمـــنـــيــــة:closed_lock_with_key:','￵ ')
 .addField('*games','￵ ')
 .addField(':video_game: اوامـــر الالـــعـــاب:video_game: ','￵ ')
+.addField('*music','￵ ')
+.addField(':musical_note: اوامـــر الاغاني:musical_note: ','￵ ')
 .addField('༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻','￵ ')
 .setColor('RANDOM')
   message.channel.sendEmbed(embed);
@@ -409,7 +411,7 @@ client.on('message', message => {
 
 *invite | القسم الاول لي اضافه البوت 
 
-@dead#6262 | القسم الثاني لمصمم البوت
+@Dead#6262 | القسم الثاني لمصمم البوت
 
 `)
 
@@ -1774,7 +1776,48 @@ const zead = [
 
 
 
+	   client.on("message", message => {
+ if (message.content === "*music") {
+        message.react("📫")
+	           message.react("✅")
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+ 
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+:musical_note:  『اوامـــر الاغاني』:musical_note:  
 
+:musical_note:   *play       
+
+:musical_note:   *skip       
+
+:musical_note:   *pause                      
+                     
+:musical_note:   *unpause                
+					 
+:musical_note:   *vol                    
+
+:musical_note:   *join    
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+	  
+
+💎『الدعم الفني والمساعدة』💎
+
+*invite | القسم الاول لي اضافه البوت 
+
+@Dead#6262 | القسم الثاني لمصمم البوت
+
+`)
+
+
+message.author.sendEmbed(embed)
+
+
+
+}
+});
 
 
 
