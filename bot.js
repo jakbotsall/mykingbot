@@ -530,13 +530,12 @@ client.on('message', message => {
  message.author.sendMessage(`
  
  
-});
+
 **
 : رابط مختصر لاضافة البوت
 
 [ https://goo.gl/ADmgeW ]
 **');
-  `);
 }
 });
   
