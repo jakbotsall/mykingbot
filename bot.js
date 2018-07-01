@@ -923,39 +923,7 @@ client.on('message', message => {
 	
 	
 	
-client.on("message", message => {
-  if (message.author.bot) return;
-
-  let command = message.content.split(" ")[0];
-
-  if (command === "*mute") {
-        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
-  let user = message.mentions.users.first();
-  let modlog = client.channels.find('name', 'mod-log');
-  let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
-  if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").catch(console.error);
-  if (message.mentions.users.size < 1) return message.reply('** يجب عليك منشنت شخص اولاً**').catch(console.error);
-
-  const embed = new Discord.RichEmbed()
-    .setColor(0x00AE86)
-    .setTimestamp()
-    .addField('الأستعمال:', 'اسكت/احكي')
-    .addField('تم ميوت:', `${user.username}!${user.discriminator} (${user.id})`)
-    .addField('بواسطة:', `${message.author.username}!${message.author.discriminator}`)
-
-   if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** لا يوجد لدي برمشن Manage Roles **').catch(console.error);
-
-  if (message.guild.member(user).roles.has(muteRole.id)) {
-return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت**").catch(console.error);
-} else {
-    message.guild.member(user).addRole(muteRole).then(() => {
-return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت كتابي**").catch(console.error);
-});
-  }
-
-};
-
-});
+const mmss = require('ms'); client.on('message', async message => { let muteReason = message.content.split(" ").slice(3).join(" "); let mutePerson = message.mentions.users.first(); let messageArray = message.content.split(" "); let muteRole = message.guild.roles.find("name", "Muted"); let time = messageArray[2]; if(message.content.startsWith(prefix + "mute")) { if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send('**- You don\'t have the needed permissions!**'); if(!mutePerson) return message.channel.send("**- Mention someone!**"); if(mutePerson === message.author) return message.channel.send('**- You cannot mute yourself!**'); if(mutePerson === client.user) return message.channel.send('**- You cannot mute me!**'); if(message.guild.member(mutePerson).roles.has(muteRole.id)) return message.channel.send('**- This person is already muted!**'); if(!muteRole) return message.guild.createRole({ name: "Muted", permissions: [] }); if(!time) return message.channel.send("**- Supply a time!**"); if(!time.match(/[1-7][s,m,h,d,w]/g)) return message.channel.send('**- Supply a real time!**'); if(!muteReason) return message.channel.send("**- Supply a reason!**"); message.guild.member(mutePerson).addRole(muteRole); let muteEmbed = new Discord.RichEmbed() .setAuthor(`${mutePerson.username}#${mutePerson.discriminator}`,mutePerson.avatarURL) .setTitle(`You have been muted in ${message.guild.name}`) .setThumbnail(message.guild.iconURL) .addField('- Muted By:',message.author,true) .addField('- Reason:',muteReason,true) .addField('- Duration:',`${mmss(mmss(time), {long: true})}`) .setFooter(message.author.username,message.author.avatarURL); message.channel.sendMessage(muteEmbed) .then(() => { setTimeout(() => { message.guild.member(mutePerson).removeRole(muteRole); }, mmss(time)); }); } });
 	
 	
 	
