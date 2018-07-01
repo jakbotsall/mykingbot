@@ -521,20 +521,23 @@ client.on('message', function(msg) {
   
   
   
-   client.on('message' , message => {
+client.on('message', message => {
+     if (message.author.bot) return;
+       if (message.content ===  "*invite") {
+           message.channel.send('**تم ارسال الرابط في الخاص**')
+           
+ 
+ message.author.sendMessage(`
+ 
+ 
+});
+**
+: رابط مختصر لاضافة البوت
 
-    if (message.content === "*invite") {
-        if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
-     const embed = new Discord.RichEmbed()
- .setColor("RANDOM")
- .setThumbnail(client.user.avatarURL)
- .setDescription("ضيفني لو سمحت" + `
- **
-رابط البوت | https://discordapp.com/api/oauth2/authorize?client_id=456934284566069248&permissions=8&scope=bot
- **
-`);
-  message.author.sendEmbed(embed);
-   }
+[ https://goo.gl/ADmgeW ]
+**');
+  `);
+}
 });
   
   
