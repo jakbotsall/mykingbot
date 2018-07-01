@@ -762,6 +762,7 @@ msg.delete();
    
     client.on('message', msg => {
   if (msg.author.bot) return;
+  var prefix = "*";
   if (!msg.content.startsWith(prefix)) return;
   let command = msg.content.split(" ")[0];
   command = command.slice(prefix.length);
