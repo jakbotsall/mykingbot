@@ -495,25 +495,24 @@ Rooms📚 ${client.channels.size} `)
 
 
 
-client.on('message', function(msg) {
-    const prefix = '*'
-    if(msg.content.startsWith (prefix  + 'server')) {
-      let embed = new Discord.RichEmbed()
-      .setColor('RANDOM')
-      .setThumbnail(msg.guild.iconURL)
-      .setTitle(`Showing Details Of  **${msg.guild.name}*`)
-      .addField('🌐** نوع السيرفر**',`[** __${msg.guild.region}__ **]`,true)
-      .addField('🏅** __الرتب__**',`[** __${msg.guild.roles.size}__ **]`,true)
-      .addField('🔴**__ عدد الاعضاء__**',`[** __${msg.guild.memberCount}__ **]`,true)
-      .addField('🔵**__ عدد الاعضاء الاونلاين__**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
-      .addField('📝**__ الرومات الكتابية__**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
-      .addField('🎤**__ رومات الصوت__**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
-      .addField('👑**__ الأونـر__**',`**${msg.guild.owner}**`,true)
-      .addField('🆔**__ ايدي السيرفر__**',`**${msg.guild.id}**`,true)
-      .addField('📅**__ تم عمل السيرفر في__**',msg.guild.createdAt.toLocaleString())
-      msg.channel.send({embed:embed});
-    }
-  });
+client.on('message', async function (message)  {
+if(message.content.startsWith(prefix+"server")) {
+const vlevel = ['None', 'Low (Must have verified email)', 'Medium (Must be register for 5 mineuts)', 'High (Need to wait 10 minutes)', 'Very High (Need verified phone on account)']
+const members = await message.guild.members.filter(m=> m.presence.status === 'online').size + message.guild.members.filter(m=> m.presence.status === 'idle').size + message.guild.members.filter(m=> m.presence.status === 'dnd').size  
+message.channel.send(new discord.RichEmbed() 
+.setAuthor(`${message.guild.name} [Server Icon URL]`, message.guild.iconURL)
+.setURL(message.guild.iconURL)
+.addField('🆔 Server ID', message.guild.id, true)
+.addField('👑 Server Owner', message.guild.owner, true)
+.addField('🗺 Region', message.guild.region, true)
+.addField(`👥 Members [${message.guild.memberCount}]`, `${members} online` ,true)
+.addField(`💬 Channels`, `**${message.guild.channels.filter(c => c.type === 'category').size}** Categories | **${message.guild.channels.filter(c=> c.type === 'text').size}** Text | **${message.guild.channels.filter(c=> c.type === 'voice').size}** Voice` ,true)
+.addField(`💠 Verification Level`, vlevel[message.guild.verificationLevel] ,true)
+.addField(`👔 Roles`, message.guild.roles.size ,true)
+.addField(`📆 Created On`, message.guild.createdAt ,true)
+)
+}
+})
   
   
   
