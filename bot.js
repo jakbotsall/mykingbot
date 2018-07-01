@@ -749,7 +749,7 @@ msg.delete();
         color: 0x06DF00,
         description: "تم مسح الرسائل ",
         footer: {
-          text: "©zabhm"
+          text: "Dead#6262"
         }
       }}).then(msg => {msg.delete(3000)});
                           }
