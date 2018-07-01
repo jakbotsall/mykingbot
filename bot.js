@@ -587,6 +587,8 @@ const embed = new Discord.RichEmbed()
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 :closed_lock_with_key:『اوامـــر الادمـــنـــيــــة』:closed_lock_with_key:
 
+:closed_lock_with_key: *ban 『لتبنيد شخص ما من السيرفر』
+
 :closed_lock_with_key: *kick 『لتعطي شخص كيك』
 
 :closed_lock_with_key: *clear 『لمسح الشات بالرياكشن』
@@ -640,6 +642,19 @@ message.author.sendEmbed(embed)
 }
 }); 
 
+
+
+
+client.on('message', message => {
+if (message.content.startsWith("*ban")) {
+    var mention = message.mentions.members.first();
+    if(!mention) return message.channel.send("يجب منشن العضو");
+
+    mention.ban("By: " + message.author.tag);
+    
+    message.channel.send("تم أعطاء باند الى : " + mention.tag);
+};
+});
 
 
 
