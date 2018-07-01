@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '*';
 
 
 
@@ -16,6 +15,7 @@ const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
 const fs = require("fs");
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";//لا تغيره
+const prefix = '*';
 
 
 client.on('ready', () => {
