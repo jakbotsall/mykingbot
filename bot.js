@@ -535,7 +535,8 @@ client.on('message', message => {
 : رابط مختصر لاضافة البوت
 
 [ https://goo.gl/ADmgeW ]
-**');
+**
+`);
 }
 });
   
