@@ -612,7 +612,9 @@ const embed = new Discord.RichEmbed()
 
 :closed_lock_with_key: *kick 『لتعطي شخص كيك』
 
-:closed_lock_with_key: *clear 『لمسح الشات برقم』
+:closed_lock_with_key: *clear 『لمسح الشات بالرياكشن』
+
+:closed_lock_with_key: *clearall 『لمسح اكثر من 1000 رسالة بالشات』
 
 :closed_lock_with_key: *mute  『لاعطاء شخص ما ميوت』 
  
@@ -751,8 +753,32 @@ msg.delete();
 });
    
    
+
+
+
    
-   
+    client.on("message", message => {
+    var prefix = "*";
+ 
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "clearall")) {
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **لا يوجد لديك صلاحية لمسح الشات**');
+        var msg;
+        msg = parseInt();
+      
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "Done | تــم مسح الشات",
+        color: 0x06DF00,
+        description: "تم مسح الرسائل ",
+        footer: {
+          text: "©zabhm"
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
+
+     
+});  
    
    
    
