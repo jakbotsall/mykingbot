@@ -496,6 +496,7 @@ Rooms📚 ${client.channels.size} `)
 
 
 client.on('message', async function (message)  {
+	    const prefix = '*'
 if(message.content.startsWith(prefix+"server")) {
 const vlevel = ['None', 'Low (Must have verified email)', 'Medium (Must be register for 5 mineuts)', 'High (Need to wait 10 minutes)', 'Very High (Need verified phone on account)']
 const members = await message.guild.members.filter(m=> m.presence.status === 'online').size + message.guild.members.filter(m=> m.presence.status === 'idle').size + message.guild.members.filter(m=> m.presence.status === 'dnd').size  
