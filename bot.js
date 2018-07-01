@@ -601,6 +601,8 @@ const embed = new Discord.RichEmbed()
 
 :closed_lock_with_key: *cv  『لانشاء روم صوتي مع اختيار الاسم』 
 
+:closed_lock_with_key: *tempv  『لانشاء روم صوتي مؤقت』 
+
 :closed_lock_with_key: *delet  『كـود يحذف الـروم سواء صوتي او كتابي』
 
 :closed_lock_with_key: *bc  『للبرودكاست』 
@@ -623,7 +625,7 @@ const embed = new Discord.RichEmbed()
 
 *invite | القسم الاول لي اضافه البوت 
 
-@dead#6262 | القسم الثاني لمصمم البوت
+@Dead#6262 | القسم الثاني لمصمم البوت
 
 للترحيب و المغادرة خلي اسم الروم welcome
 
@@ -637,6 +639,23 @@ message.author.sendEmbed(embed)
 
 }
 }); 
+
+
+
+
+
+client.on("message", message => {
+     var prefix = "*";
+    if(message.content.startsWith(prefix + 'tempv')) {
+     let args = message.content.split(" ").slice(1);
+       var nam = args.join(' ');
+    
+      if(!message.member.hasPermission('ADMINISTRATOR')) return    message.channel.send('`ADMINISTRATOR` للأسف هذه الخاصية تحتاج الى ').then(msg => msg.delete(6000))
+      if (!nam) return message.channel.send(`<@${message.author.id}> يجب عليك ادخال اسم`).then(msg => msg.delete(10000))
+      message.guild.createChannel(nam, 'voice').then(c => setTimeout(() => c.delete(), 120000)) // كل 60 تساوي دقيقة عدل عليها الوقت لي تبيه 
+      message.channel.send(`☑ TemporarySound : \`${nam}\``).then(c => setTimeout(() => c.edit(`<@${message.author.id}> ⏱  انتهى وقت الروم الصوتي`), 120000))  // 120000 دقيقتان
+    }
+    });
 
 
 
