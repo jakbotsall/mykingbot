@@ -601,7 +601,7 @@ const embed = new Discord.RichEmbed()
 
 :closed_lock_with_key: *cv  『لانشاء روم صوتي مع اختيار الاسم』 
 
-:closed_lock_with_key: *tempv  『لانشاء روم صوتي مؤقت』 
+:closed_lock_with_key: *v2min  『لانشاء روم صوتي مؤقت لدقيقتين』 
 
 :closed_lock_with_key: *delet  『كـود يحذف الـروم سواء صوتي او كتابي』
 
@@ -646,7 +646,7 @@ message.author.sendEmbed(embed)
 
 client.on("message", message => {
      var prefix = "*";
-    if(message.content.startsWith(prefix + 'tempv')) {
+    if(message.content.startsWith(prefix + 'v2min')) {
      let args = message.content.split(" ").slice(1);
        var nam = args.join(' ');
     
