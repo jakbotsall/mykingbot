@@ -1112,15 +1112,6 @@ client.on('ready', () => {
 
 
 
-client.on('ebnklb',function(ebnklb) {
-    
-    if(ebnklb.content.startsWith("<@456934284566069248>")) {
-        ebnklb.channel.send('`@Dead#6262` : المطور حقي هو **King | Bot** : هلا والله اسمي ')
-        ebnklb.channel.send('`*` البرفكس حقي هو ')
-
-    }
-});
-
 
 
 client.on('guildMemberAdd', member => {
