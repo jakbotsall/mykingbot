@@ -98,6 +98,8 @@ client.on('message', message => {
 
 :earth_africa: *members 『معلومات عن الاعضاء』
 
+:earth_africa: *emojilist 『لعرض الايموجي حق السيرفر』
+
 :earth_africa: *id 『لمعرفة معلومات حسابك』
 
 :earth_africa: *avatar 『لاعطائك صورة الشخص اللي منشنته مع الرابط』
@@ -304,9 +306,23 @@ client.on('message', message => {
 });
   
   
-  
 
-   
+
+client.on('message', message => { 
+let PREFIX = '*'
+    if (message.content.startsWith(PREFIX + 'emojilist')) {
+
+        const List = message.guild.emojis.map(e => e.toString()).join(" ");
+
+        const EmojiList = new Discord.RichEmbed()
+            .setTitle('➠ Emojis') 
+            .setAuthor(message.guild.name, message.guild.iconURL) 
+            .setColor('RANDOM') 
+            .setDescription(List) 
+            .setFooter(message.guild.name) 
+        message.channel.send(EmojiList) 
+    }
+});
   
 
    
