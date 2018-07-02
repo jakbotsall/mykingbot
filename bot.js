@@ -163,29 +163,6 @@ message.author.sendEmbed(embed)
 
 
 
-client.on('message', msg => {
-  if (msg.author.bot) return;
-  if (!msg.content.startsWith(prefix)) return;
-  let command = msg.content.split(" ")[0];
-  command = command.slice(prefix.length);
-  let args = msg.content.split(" ").slice(1);
-
-    if(command === "c") {
-        const emoji = client.emojis.find("name", "wastebasket")
-    let textxt = args.slice(0).join("");
-    if(msg.member.hasPermission("MANAGE_MESSAGES")) {
-    if (textxt == "") {
-        msg.delete().then
-    msg.channel.send("***```but any number of messeges u want to remove ??```***").then(m => m.delete(3000));
-} else {
-    msg.delete().then
-    msg.delete().then
-    msg.channel.bulkDelete(textxt);
-        msg.channel.send("```php\ndone i removed: " + textxt + "\n```").then(m => m.delete(3000));
-        }    
-    }
-}
-});
 
    
    
@@ -291,7 +268,7 @@ if (message.content === '*invite') {
  
  
 client.on('message', message => {
-     if (message.content === ".invite") {
+     if (message.content === "*invite") {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
@@ -389,9 +366,9 @@ const embed = new Discord.RichEmbed()
 
 :closed_lock_with_key: *kick 『لتعطي شخص كيك』
 
-:closed_lock_with_key: *clear 『لمسح الشات بالرياكشن』
+:closed_lock_with_key: *clear 『لمسح اكثر من 1000 رسالة بالشات』
 
-:closed_lock_with_key: *clall 『لمسح اكثر من 1000 رسالة بالشات』
+:closed_lock_with_key: *clear <numb> 『لمسح عدد الرسائل التي تريدها』
 
 :closed_lock_with_key: *mute  『لاعطاء شخص ما ميوت』 
  
@@ -528,45 +505,7 @@ client.on('message' , message => {
    
 
    
-client.on('message', message => {
-   if(!message.channel.guild) return;
-if(message.content.startsWith(prefix + 'clear')) {
-if(!message.channel.guild) return message.channel.send('**هذا الامر فقط في السيرفرات**').then(m => m.delete(5000));
-if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**لا تمتلك صلاحية** `ADMINISTRATOR`' );
-let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-let request = `Requested By ${message.author.username}`;
-message.channel.send(`**هل انت متاكد من مسح الشات ؟**`).then(msg => {
-msg.react('✅')
-.then(() => msg.react('❌'))
-.then(() =>msg.react('✅'))
 
-let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
-let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
-
-let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
-let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
-reaction1.on("collect", r => {
-message.channel.send(`سيتم مسح الشات`).then(m => m.delete(5000));
-var msg;
-        msg = parseInt();
-
-      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-      message.channel.sendMessage("", {embed: {
-        title: "`` تم مسح الشات ``",
-        color: 0x06DF00,
-        footer: {
-
-        }
-      }}).then(msg => {msg.delete(3000)});
-
-})
-reaction2.on("collect", r => {
-message.channel.send(`**تم الغاء مسح الشات**`).then(m => m.delete(5000));
-msg.delete();
-})
-})
-}
-});
    
    
 
@@ -578,7 +517,7 @@ msg.delete();
     var prefix = "*";
  
             var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "clall")) {
+            if (message.content.startsWith(prefix + "clear")) {
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **لا يوجد لديك صلاحية لمسح الشات**');
         var msg;
         msg = parseInt();
@@ -596,6 +535,33 @@ msg.delete();
 
      
 });  
+
+
+
+
+client.on('message', msg => {
+  if (msg.author.bot) return;
+  if (!msg.content.startsWith(prefix)) return;
+  let command = msg.content.split(" ")[0];
+  command = command.slice(prefix.length);
+  let args = msg.content.split(" ").slice(1);
+
+    if(command === "clear") {
+        const emoji = client.emojis.find("name", "wastebasket")
+    let textxt = args.slice(0).join("");
+    if(msg.member.hasPermission("MANAGE_MESSAGES")) {
+    if (textxt == "") {
+        msg.delete().then
+    msg.channel.send("***```اكتب عدد الرسائل التي تريد مسحها```***").then(m => m.delete(3000));
+} else {
+    msg.delete().then
+    msg.delete().then
+    msg.channel.bulkDelete(textxt);
+        msg.channel.send("```php\nتم لقد مسحت : " + textxt + "\n```").then(m => m.delete(3000));
+        }    
+    }
+}
+});
    
    
    
