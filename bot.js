@@ -147,7 +147,6 @@ message.author.sendEmbed(embed)
 
 
 
-var version = '11.0.0';
 client.on('message', message => {
 if (message.content === prefix+'bot'){
      if(!message.channel.guild) return message.reply('** هذا الامر فقط للسيرفرات**');
