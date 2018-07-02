@@ -1129,25 +1129,13 @@ client.on('ready', () => {
 
 
 
-client.on('message' , async (message) => {
-       if(message.content.startsWith(`<@${client.user.id}>`)) {
-              
- let responses = [
-        'كيف يمكن اساعدك',
-        'مرحبا',
-        'لا تزعجني',
-        'ايش تبي ',
-        'هلا',
-        'كيفك',
-        '?',
-        'جرب *help'
-    ]
+client.on('ebnklb',function(ebnklb) {
     
-    // Fetch a random item from the array
-    let fetched = responses[Math.floor(Math.random() * responses.length)];
-   message.reply(fetched)
-       }
-  
+    if(ebnklb.content.startsWith("<@456934284566069248>")) {
+        ebnklb.channel.send('`@Dead#6262` : المطور حقي هو **King | Bot** : هلا والله اسمي ')
+        ebnklb.channel.send('`*` البرفكس حقي هو ')
+
+    }
 });
 
 
