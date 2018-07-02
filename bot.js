@@ -714,7 +714,7 @@ client.on('message', message => {
 	
 client.on('message',function(message) {
     let messageArray = message.content.split(' ');
-    let muteRole = message.guild.roles.get('اي دي الرتبة') || message.guild.roles.find('name', 'Muted');
+    let muteRole = message.guild.roles.find('name', 'Muted');
     let muteMember = message.mentions.members.first();
     let muteReason = messageArray[2];
     let muteDuration = messageArray[3];
