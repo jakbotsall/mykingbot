@@ -712,78 +712,30 @@ client.on('message', message => {
 	
 	
 	
-client.on('message',function(message) {
-    let muteRole = message.guild.roles.find(r => r.name === "Muted");
-    let muteId = message.mentions.users.first();
-    let messageArray = message.content.split(" ");
-    let muteReason = messageArray[3];
-    let Swearing = '1h';
-    let Advertising = '4h';
-    let Spam = '2h';
-   if(message.content.startsWith(prefix + "mute")) {
-       if(!muteRole) return message.guild.createRole({ name: "Muted", permissions: [] });
-       if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send("**- You don't have the needed permissions!**");
-       if(!muteId) return message.channel.send("**- Mention someone!**");
-       if(muteId === message.author) return message.channel.send('**- You cannot mute yourself!**');
-       if(muteId === client.user) return message.channel.send('**- You cannot mute me!**');
-       message.guild.channels.forEach((channel, id) => {
-      message.channel.overwritePermissions(muteRole, {
-        SEND_MESSAGES: false,
-        ADD_REACTIONS: false
-      });
-    });
-    message.channel.send(`
-    \`\`\`ml
-" قم بأختيار رقم السبب "
-1 : السب و الشتم
-2 : النشر
-3 : السبام
-\`\`\`
-__امامك 20 ثانية للاختيار__`)
-.then(() => {
-  message.channel.awaitMessages(response => response.content === '1', {
-    max: 1,
-    time: 20000,
-    errors: ['time'],
-  })
-  .then((collected) => {
-      message.guild.member(muteId).addRole(muteRole)
-      .then(() => { setTimeout(() => {
-           message.guild.member(muteId).removeRole(muteRole);
-       }, mmss(Swearing));
-       message.channel.send(`**تم!, تم اعطاء ميوت لـ${muteId} بسبب السب و الشم**`);
-      });
-    });
-
-message.channel.awaitMessages(response => response.content === '2', {
-    max: 1,
-    time: 20000,
-    errors: ['time'],
-  })
-  .then((collected) => {
-      message.guild.member(muteId).addRole(muteRole)
-      .then(() => { setTimeout(() => {
-           message.guild.member(muteId).removeRole(muteRole);
-       }, mmss(Advertising));
-       message.channel.send(`**تم اعطاء ميوت لـ${muteId} بسبب النشر**`);
-      });
-    });
-message.channel.awaitMessages(response => response.content === '3', {
-    max: 1,
-    time: 20000,
-    errors: ['time'],
-  })
-  .then((collected) => {
-      message.guild.member(muteId).addRole(muteRole)
-      .then(() => { setTimeout(() => {
-           message.guild.member(muteId).removeRole(muteRole);
-       }, mmss(Spam));
-       message.channel.send(`**تم اعطاء ميوت لـ${muteId} بسبب السبام**`);
-      });
-    });
-   });
-   }
-});
+client.on('message', async message =>{
+  var prefix = "!";
+const ms = require("ms");
+if (message.author.omar) return;
+if (!message.content.startsWith(prefix)) return;
+if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("**I Don't Have `MANAGE_ROLES` Permission**").then(msg => msg.delete(6000))
+var command = message.content.split(" ")[0];
+command = command.slice(prefix.length);
+var args = message.content.split(" ").slice(1);
+    if(command == "mute") {
+    let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!tomute) return message.reply("**يجب عليك المنشن اولاّ**:x: ") .then(m => m.delete(5000));
+    if(tomute.hasPermission("MANAGE_MESSAGES"))return      message.channel.send('**للأسف لا أمتلك صلاحية** `MANAGE_MASSAGEES`');
+    let muterole = message.guild.roles.find(`name`, "Muted");
+    let mutetime = args[1];
+    if(!mutetime) return message.reply("**يرجى تحديد وقت الميوت**:x:");
+ 
+    await(tomute.addRole(muterole.id));
+message.reply(`<@${tomute.id}> **تم اعطائه ميوت ومدة الميوت** : ${ms(ms(mutetime))}`);
+setTimeout(function(){
+      tomute.removeRole(muterole.id);
+      message.channel.send(`<@${tomute.id}> **انقضى الوقت وتم فك الميوت عن الشخص**:white_check_mark: `);
+    }, ms(mutetime));
 
 
 
