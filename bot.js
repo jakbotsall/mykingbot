@@ -351,6 +351,8 @@ const embed = new Discord.RichEmbed()
 
 :closed_lock_with_key: *v2min  『لانشاء روم صوتي مؤقت لدقيقتين』 
 
+:closed_lock_with_key: *add.r  『لانشاء رتبة مع تحديد الاسم』 
+
 :closed_lock_with_key: *delet  『كـود يحذف الـروم سواء صوتي او كتابي』
 
 :closed_lock_with_key: *bc  『للبرودكاست』 
@@ -362,6 +364,8 @@ const embed = new Discord.RichEmbed()
 :closed_lock_with_key: *color  『لانشاء رتب الوان مع اختيار رقم الرتب اللي تبيه』
 
 :closed_lock_with_key: *move all  『سحب جميع الأعضاء لرومك الصوتي』
+
+:closed_lock_with_key: *roles  『لعرض الرولات اللي في السيرفر』 
 
 :closed_lock_with_key: *rules  『لعرض قوانين السيرفر بامبيد』 
 
@@ -411,7 +415,20 @@ client.on("message", message => {
 
 
 
+client.on('message', message => {
+if (message.content.startsWith("*add.r")) {
+             if(!message.channel.guild) return message.reply('**Commands in the server**');
+        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply('⚠ **You do not have permissions**');
+        let args = message.content.split(" ").slice(1);
+            message.guild.createRole({
+                name : args.join(' '),
+                color : "RANDOM", 
+            }).then(function(role){
+                message.member.addRole(role)
+            })
 
+}
+});
    
    
 
@@ -555,15 +572,21 @@ client.on('message', function(msg) {
 
    
    
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('https://')){
-      if(!message.member.hasPermission('ADMINISTRATOR'))
-        message.delete()
-    return message.reply(`** يمنع نشر الروابط بهذا السيرفر  :angry: ! **`)
-    }
-});
+  client.on('message' , message => {
+    var prefix = "*";
+    let user = message.mentions.users.first() || message.author;
+if(message.content.startsWith(prefix+"roles")) {
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
+    const embed = new Discord.RichEmbed()
+  .setThumbnail(user.displayAvatarURL)
+.addField('User :', `**${user.username}**`)
+  .addField(`Roles For User :`, message.guild.members.get(user.id).roles.array(role => role.name).slice(1).join('\n'))
+  .setAuthor(`${user.username}`, user.displayAvatarURL)
+  .setColor('RANDOM')
+    message.channel.send({embed});
 
+}
+});
 
 
 
@@ -1837,6 +1860,8 @@ client.on('message', function(message) {
 		return str.toLowerCase().indexOf('youtube.com') > -1;
 	}
 });
+
+
 
 
 
