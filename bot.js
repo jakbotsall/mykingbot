@@ -98,7 +98,7 @@ client.on('message', message => {
 
 :earth_africa: *members 『معلومات عن الاعضاء』
 
-:earth_africa: *emojilist 『لعرض الايموجي حق السيرفر』
+:earth_africa: *emojilist 『لعرض الايموجي حقت السيرفر』
 
 :earth_africa: *id 『لمعرفة معلومات حسابك』
 
