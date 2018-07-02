@@ -94,6 +94,8 @@ client.on('message', message => {
 
 :earth_africa: *servers 『جميع السيرفرات اللي ضايفة البوت』                      
 
+:earth_africa: *invites 『لمعرفة عدد الدعوات اللي جبتها للسيرفر』
+
 :earth_africa: *bot 『لمعرف البوت بكم سيرفر』
 
 :earth_africa: *ping 『لمعرفه سرعه البوت』
@@ -231,36 +233,7 @@ message.channel.send({embed});
    
    
    
-  
-
-const arraySort = require('array-sort'),
-      table = require('table');
-
-client.on('message' , async (message) => {
-
-    if(message.content.startsWith(prefix + "دعوات")) {
-
-  let invites = await message.guild.fetchInvites();
-
-    invites = invites.array();
-
-    arraySort(invites, 'uses', { reverse: true });
-
-    let possibleInvites = [['User Invited', 'Uses']];
-    invites.forEach(i => {
-      possibleInvites.push([i.inviter.username , i.uses]);
-    })
-    const embed = new Discord.RichEmbed()
-    .setColor('RANDOM')
-    .setTitle("دعوات السيرفر")
-    .addField('المتصدرين' , `\`\`\`${table.table(possibleInvites)}\`\`\``)
-    .addField('**شكرا لدعمكم المتواصل للسيرفر ♥**')
-    .setFooter('sk Bot', 'https://c.top4top.net/p_831fzcx71.png')
-    .setThumbnail(message.author.avatarURL)
-
-    message.channel.send(embed)
-    }
-});
+ 
 
 
 
