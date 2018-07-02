@@ -558,13 +558,6 @@ msg.delete();
    
    
 
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('كل زق' ,'تفو عليك' ,'يا معفن' ,'يابن الكلب ','نيك مك','يدك فيه','نيخ مك','نيخ باباك','نيك باباك','عطاي','نقش','كلب','حمار','على زق','يا ابن الشرموطة','عطاية')){
-        message.delete()
-    return message.reply(`** عيب عليك لا تسب ! **`)
-    }
-});
 
 
 
