@@ -405,7 +405,7 @@ const embed = new Discord.RichEmbed()
 
 :closed_lock_with_key: *kick 『لتعطي شخص كيك』
 
-:closed_lock_with_key: *clear 『لمسح اكثر من 1000 رسالة بالشات』
+:closed_lock_with_key: *clearall 『لمسح اكثر من 1000 رسالة بالشات』
 
 :closed_lock_with_key: *clear <numb> 『لمسح عدد الرسائل التي تريدها』
 
@@ -558,7 +558,7 @@ client.on('message' , message => {
     var prefix = "*";
  
             var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "clear")) {
+            if (message.content.startsWith(prefix + "clearall")) {
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **لا يوجد لديك صلاحية لمسح الشات**');
         var msg;
         msg = parseInt();
