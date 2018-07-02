@@ -102,6 +102,8 @@ client.on('message', message => {
 
 :earth_africa: *id 『لمعرفة معلومات حسابك』
 
+:earth_africa: *invites 『لمعرفة عدد الاشخاص اللي دعوتهم الى السيرفر』
+
 :earth_africa: *avatar 『لاعطائك صورة الشخص اللي منشنته مع الرابط』
 
 :earth_africa: *link 『يعطيك رابط انفايت للسيرفر اللي انت فيه』
