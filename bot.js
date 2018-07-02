@@ -713,28 +713,76 @@ client.on('message', message => {
 	
 	
 client.on('message',function(message) {
-    let messageArray = message.content.split(' ');
-    let muteRole = message.guild.roles.get('اي دي الرتبة') || message.guild.roles.find('name', 'Muted');
-    let muteMember = message.mentions.members.first();
-    let muteReason = messageArray[2];
-    let muteDuration = messageArray[3];
+    let muteRole = message.guild.roles.find(r => r.name === "Muted");
+    let muteId = message.mentions.users.first();
+    let messageArray = message.content.split(" ");
+    let muteReason = messageArray[3];
+    let Swearing = '1h';
+    let Advertising = '4h';
+    let Spam = '2h';
    if(message.content.startsWith(prefix + "mute")) {
-       if(!muteRole) return message.guild.createRole({name: 'Muted'}).then(message.guild.channels.forEach(chan => chan.overwritePermissions(muteRole, {SEND_MESSAGES:false,ADD_REACTIONS:false})));
-       if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send('ℹ **Error:** ``خصائص مفقودة``');
-       if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.channel.send('ℹ **Error:** ``خصائص مفقودة مني``');
-       if(!muteMember) return message.channel.send('ℹ **Error:** ``منشن شخص``');
-       if(!muteReason) return message.channel.send('ℹ **Error:** ``حدد سباّ``');
-       if(!muteDuration) return message.channel.send('ℹ **Error:** ``حدد وقت زمني``');
-       if(!muteDuration.match(/[1-7][s,m,h,d,w]/g)) return message.channel.send('ℹ **Error:** ``حدد وقت زمني صحيح``');
-       message.channel.send(`:white_check_mark: **تم اعطاء العضو ميوت : ${muteMember}**`);
-       muteMember.addRole(muteRole);
-       muteMember.setMute(true)
-       .then(() => { setTimeout(() => {
-           muteMember.removeRole(muteRole)
-           muteMember.setMute(false)
-       }, mmss(muteDuration));
-       });
-   } 
+       if(!muteRole) return message.guild.createRole({ name: "Muted", permissions: [] });
+       if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send("**- You don't have the needed permissions!**");
+       if(!muteId) return message.channel.send("**- Mention someone!**");
+       if(muteId === message.author) return message.channel.send('**- You cannot mute yourself!**');
+       if(muteId === client.user) return message.channel.send('**- You cannot mute me!**');
+       message.guild.channels.forEach((channel, id) => {
+      message.channel.overwritePermissions(muteRole, {
+        SEND_MESSAGES: false,
+        ADD_REACTIONS: false
+      });
+    });
+    message.channel.send(`
+    \`\`\`ml
+" قم بأختيار رقم السبب "
+1 : السب و الشتم
+2 : النشر
+3 : السبام
+\`\`\`
+__امامك 20 ثانية للاختيار__`)
+.then(() => {
+  message.channel.awaitMessages(response => response.content === '1', {
+    max: 1,
+    time: 20000,
+    errors: ['time'],
+  })
+  .then((collected) => {
+      message.guild.member(muteId).addRole(muteRole)
+      .then(() => { setTimeout(() => {
+           message.guild.member(muteId).removeRole(muteRole);
+       }, mmss(Swearing));
+       message.channel.send(`**تم!, تم اعطاء ميوت لـ${muteId} بسبب السب و الشم**`);
+      });
+    });
+
+message.channel.awaitMessages(response => response.content === '2', {
+    max: 1,
+    time: 20000,
+    errors: ['time'],
+  })
+  .then((collected) => {
+      message.guild.member(muteId).addRole(muteRole)
+      .then(() => { setTimeout(() => {
+           message.guild.member(muteId).removeRole(muteRole);
+       }, mmss(Advertising));
+       message.channel.send(`**تم اعطاء ميوت لـ${muteId} بسبب النشر**`);
+      });
+    });
+message.channel.awaitMessages(response => response.content === '3', {
+    max: 1,
+    time: 20000,
+    errors: ['time'],
+  })
+  .then((collected) => {
+      message.guild.member(muteId).addRole(muteRole)
+      .then(() => { setTimeout(() => {
+           message.guild.member(muteId).removeRole(muteRole);
+       }, mmss(Spam));
+       message.channel.send(`**تم اعطاء ميوت لـ${muteId} بسبب السبام**`);
+      });
+    });
+   });
+   }
 });
 
 
