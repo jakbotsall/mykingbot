@@ -146,7 +146,23 @@ message.author.sendEmbed(embed)
    
 
 
+client.on("guildCreate", guild => {
+    let embed = new Discord.RichEmbed () 
+    .setTitle('Bot Logs')
+    .addField(' ***Bot joined to :***[' + `${guild.name}` + ']   **By : **' + `${guild.owner.user.username}` + '')
+    .setFooter(':grinning: كفووو:grinning: ')
+    .setTimestamp()
+    client.channels.get("463281820448849920").send(embed)
+  });
 
+  client.on("guildDelete", guild => {
+  let embed = new Discord.RichEmbed ()
+  .setTitle('Bot Logs')
+  .addField(' ***Bot left from :***[' + `${guild.name}` + ']     **By : **' + `${guild.owner.user.username}` +  ' ')
+  .setFooter(':sob: ليييش:sob: ')
+  .setTimestamp()
+  client.channels.get("463281835024318474").send(embed)
+});
 
 
 			 
