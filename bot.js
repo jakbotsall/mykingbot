@@ -403,8 +403,6 @@ const embed = new Discord.RichEmbed()
 
 :closed_lock_with_key: *move all  『سحب جميع الأعضاء لرومك الصوتي』
 
-:closed_lock_with_key: *roles  『لعرض الرولات التي تمتلكها في السيرفر』 
-
 :closed_lock_with_key: *rules  『لعرض قوانين السيرفر بامبيد』 
 
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
@@ -610,22 +608,7 @@ client.on('message', function(msg) {
    
 
    
-   
-  client.on('message' , message => {
-    var prefix = "*";
-    let user = message.mentions.users.first() || message.author;
-if(message.content.startsWith(prefix+"roles")) {
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
-    const embed = new Discord.RichEmbed()
-  .setThumbnail(user.displayAvatarURL)
-.addField('User :', `**${user.username}**`)
-  .addField(`Roles For User :`, message.guild.members.get(user.id).roles.array(role => role.name).slice(1).join('\n'))
-  .setAuthor(`${user.username}`, user.displayAvatarURL)
-  .setColor('RANDOM')
-    message.channel.send({embed});
 
-}
-});
 
 
 
