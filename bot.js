@@ -145,20 +145,6 @@ message.author.sendEmbed(embed)
 
 
 
-client.on('message', message => {
-  if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
-
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-
-  if (command == "~say") {
-   message.channel.sendMessage(args.join("  "))
-   message.delete()
-  }
- });
 
 
 			 
@@ -375,7 +361,7 @@ const embed = new Discord.RichEmbed()
 
 :closed_lock_with_key: *clear 『لمسح الشات بالرياكشن』
 
-:closed_lock_with_key: *clearall 『لمسح اكثر من 1000 رسالة بالشات』
+:closed_lock_with_key: *clall 『لمسح اكثر من 1000 رسالة بالشات』
 
 :closed_lock_with_key: *mute  『لاعطاء شخص ما ميوت』 
  
@@ -563,7 +549,7 @@ msg.delete();
     var prefix = "*";
  
             var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "clearall")) {
+            if (message.content.startsWith(prefix + "clall")) {
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **لا يوجد لديك صلاحية لمسح الشات**');
         var msg;
         msg = parseInt();
