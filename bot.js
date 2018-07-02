@@ -228,15 +228,25 @@ client.on('message', message => {
  
     
 
-if(message.content.startsWith(prefix + 'bot')) {
-        const embed = new Discord.RichEmbed()
-            .setColor("RANDOM")
-            .setDescription(`Servers🌐 ${client.guilds.size}
-Users👥 ${client.users.size}
-Rooms📚 ${client.channels.size} `)
-        message.channel.sendEmbed(embed);
-    }
- 
+var version = '11.0.0';
+client.on('message', message => {
+if (message.content === prefix+'bot'){
+     if(!message.channel.guild) return message.reply('** This command only for servers**');
+var embed = new Discord.RichEmbed()//تا
+    .setAuthor(client.user.username, client.user.avatarURL)
+.setDescription(`**Ping:rocket: : ${Date.now() - message.createdTimestamp}
+ Servers:globe_with_meridians: :${client.guilds.size}
+  Users:busts_in_silhouette: :${client.users.size}
+ Channels:books: : ${client.channels.size}
+ RAM Usage📝 :${(process.memoryUsage().rss / 1048576).toFixed()}MB
+ Discord.js:ping_pong:  :v${version}
+ UpTime🕛  :${timeCon(process.uptime())}
+ Node  :${process.version}**`)
+     .setFooter('all copyrights reserved ©',client.user.avatarURL)
+ .setFooter(`ClaimBot`, client.user.avatarURL)
+    message.channel.sendEmbed(embed)
+    console.log('[bot] Send By: ' + message.author.username)
+}
 });
 
 
