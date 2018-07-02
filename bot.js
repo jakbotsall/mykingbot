@@ -403,7 +403,7 @@ const embed = new Discord.RichEmbed()
 
 :closed_lock_with_key: *move all  『سحب جميع الأعضاء لرومك الصوتي』
 
-:closed_lock_with_key: *roles  『لعرض الرولات اللي في السيرفر』 
+:closed_lock_with_key: *roles  『لعرض الرولات التي تمتلكها في السيرفر』 
 
 :closed_lock_with_key: *rules  『لعرض قوانين السيرفر بامبيد』 
 
