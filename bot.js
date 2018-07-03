@@ -1155,7 +1155,7 @@ client.on("guildMemberAdd", member => {
 
 	
 client.on('ready', () => {
-     client.user.setActivity("*help | *invite",{type: 'WATCHING'});
+     client.user.setActivity("In 19 Servers | *invite",{type: 'WATCHING'});
 
 });
 
