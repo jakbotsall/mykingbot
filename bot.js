@@ -1146,6 +1146,52 @@ client.on('ready', () => {
 
 
 
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+         client.on('message', message => {
+            if (message.content === 'كلب') {
+              message.channel.send(' انت الكلب والله ');
+               
+
+            }
+}); 
+
+
+
+
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+         client.on('message', message => {
+            if (message.content === 'حمار') {
+              message.channel.send(' مافي احد حمار هنا غيرك');
+               
+
+            }
+}); 
+
+
+
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+         client.on('message', message => {
+            if (message.content === 'غبي') {
+              message.channel.send(' الغبي انت ');
+               
+
+            }
+}); 
+
+
+
+
+
+
 client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
   return channel.send(`ولكم نورت السيرفر `) 
