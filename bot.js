@@ -131,6 +131,17 @@ message.author.sendEmbed(embed)
    
    
 
+client.on('ebnklb',function(ebnklb) {
+    
+    if(ebnklb.content.startsWith("<@456934284566069248>")) {
+        ebnklb.channel.send('Hey Im **King | Bot!**  A Nice Bot Developed By:`Dead#6262`')
+        ebnklb.channel.send('My Prefix `*`')
+
+    }
+});
+
+
+
 
 
 client.on('message', message => {
