@@ -1201,7 +1201,7 @@ client.on("guildMemberAdd", member => {
 
 	
 client.on('ready', () => {
-     client.user.setActivity("In 19 Server | *invite",{type: 'WATCHING'});
+     client.user.setActivity("In 21 Server | *invite",{type: 'WATCHING'});
 
 });
 
