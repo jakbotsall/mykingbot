@@ -1189,11 +1189,7 @@ client.on("guildMemberAdd", member => {
 
 });
 
-	
-client.on('ready', () => {
-     client.user.setActivity("In 21 Server | *invite",{type: 'WATCHING'});
 
-});
 
 
 
