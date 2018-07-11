@@ -90,8 +90,10 @@ client.on('message', message => {
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 
 :earth_africa:『الاوامــر الــعـــامـــة』:earth_africa:
-                        
+
 :earth_africa: *server 『معلومات عن السيرفر』                      
+
+:earth_africa: *say 『البوت يردد كلامك』                                              
 
 :earth_africa: *servers 『جميع السيرفرات اللي ضايفة البوت』                      
 
@@ -336,6 +338,24 @@ let PREFIX = '*'
   
 
 
+client.on('message', message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "say") {
+   message.channel.sendMessage(args.join("  "))
+   message.delete()
+  }
+ });
+
+
+
+
    client.on('message', message => {
        if (message.content.startsWith(prefix + 'servers')) {
      let msg =  client.guilds.map(guild => `**${guild.name}** عدد الاعضاء: ${guild.memberCount}`).join('\n');
@@ -412,6 +432,8 @@ const embed = new Discord.RichEmbed()
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 :closed_lock_with_key:『اوامـــر الادمـــنـــيــــة』:closed_lock_with_key:
 
+:closed_lock_with_key: *ban 『لتبنيد شخص ما من السيرفر』
+
 :closed_lock_with_key: *kick 『لتعطي شخص كيك』
 
 :closed_lock_with_key: *clearall 『لمسح اكثر من 1000 رسالة بالشات』
@@ -470,6 +492,43 @@ message.author.sendEmbed(embed)
 }); 
 
 
+
+
+client.on('message', message => {
+  var prefix = '*';
+ 
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "ban") {
+      if(!message.channel.guild) return message.reply('**❌ اسف لكن هذا الامر للسيرفرات فقط **');         
+  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**انت لا تملك صلاحية الباند**");
+  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("البوت لايملك صلاحيات الباند");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+if (message.mentions.users.size < 1) return message.reply("**منشن الشخص اللي تريد تبنيده**");
+  if (!message.guild.member(user)
+.kickable) return message.reply("**لايمكنني تبنيد هذا الشخص**");
+
+  message.guild.member(user).ban();
+
+  const banembed = new Discord.RichEmbed()
+  .setAuthor(`تم تبنيد العضو`, user.displayAvatarURL)
+  .setColor("#502faf")
+  .setTimestamp()
+  .addField("**العضو الي تبند:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**العضو اللي قام بتبنيده:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**السبب**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : banembed
+  })
+}
+});
 
 
 
