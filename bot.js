@@ -263,7 +263,7 @@ message.channel.send(`${user} has ${inviteCount} invites.`);
     if (message.content === "*server") {
         if (!message.channel.guild) return;
         const millis = new Date().getTime() - message.guild.createdAt.getTime();
-        const now = new Date();
+        const now = new Date(); //KingBot
 
         const days = millis / 1000 / 60 / 60 / 24;
         let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
