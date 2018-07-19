@@ -251,11 +251,11 @@ client.on('message', message => {
 
 :earth_africa:『الاوامــر الــعـــامـــة』:earth_africa:
 
+:earth_africa: *invite 『لدعوة البوت الى سيرفرك』
+
 :earth_africa: *server 『معلومات عن السيرفر』                      
 
 :earth_africa: *say 『البوت يردد كلامك』                                              
-
-:earth_africa: *invites 『لمعرفة عدد الدعوات اللي جبتها للسيرفر』
 
 :earth_africa: *bot 『معلومات عن البوت』
 
