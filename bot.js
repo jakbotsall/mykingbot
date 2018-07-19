@@ -29,7 +29,7 @@ const sql = require("sqlite");
 
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+console.log(`Logged in as ${client.user.tag}!`);
 client.user.setGame(`In 37 Server | *invite`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
