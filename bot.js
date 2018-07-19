@@ -120,7 +120,7 @@ client.on('message', message => {
 
 *invite | القسم الاول لي اضافه البوت 
 
-@Dead#6262 | القسم الثاني لمصمم البوت
+! ~ D e v i l#7923 | القسم الثاني لمصمم البوت
 
 `)
 
@@ -476,7 +476,7 @@ const embed = new Discord.RichEmbed()
 
 *invite | القسم الاول لي اضافه البوت 
 
-@Dead#6262 | القسم الثاني لمصمم البوت
+! ~ D e v i l#7923 | القسم الثاني لمصمم البوت
 
 للترحيب و المغادرة خلي اسم الروم welcome
 
@@ -637,7 +637,7 @@ client.on('message' , message => {
         color: 0x06DF00,
         description: "تم مسح الرسائل ",
         footer: {
-          text: "Dead#6262"
+          text: "! ~ D e v i l#7923"
         }
       }}).then(msg => {msg.delete(3000)});
                           }
@@ -991,7 +991,7 @@ if (message.member.voiceChannel == null) return message.channel.send(`**الرج
 
 *invite | القسم الاول لي اضافه البوت 
 
-@Dead#6262 | القسم الثاني لمصمم البوت
+! ~ D e v i l#7923 | القسم الثاني لمصمم البوت
 
 `)
 
@@ -1726,7 +1726,7 @@ const zead = [
 
 *invite | القسم الاول لي اضافه البوت 
 
-@Dead#6262 | القسم الثاني لمصمم البوت
+! ~ D e v i l#7923 | القسم الثاني لمصمم البوت
 
 `)
 
