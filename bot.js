@@ -231,28 +231,6 @@ client.on('message', msg => {
 });
 
 
-
-    client.on('message', message => {
-     if (message.content === "*id") {
-     let embed = new Discord.RichEmbed()
-  .setThumbnail(message.author.avatarURL)  
-  .setAuthor(message.author.username)
-.setDescription("معلومات عن الحــساب")
-               .setFooter(`Network_Shop_shop.`, '')
-  .setColor("#9B59B6")
-  .addField("اســـم الحســاب", `${message.author.username}`)
-  .addField('كود الحساب الخاص', message.author.discriminator)
-  .addField("الرقـــم الشـــخصي", message.author.id)
-  .addField('بــــوت', message.author.bot)
-  .addField("تاريخ التسجيل", message.author.createdAt)
-     
-     
-  message.channel.sendEmbed(embed);
-    }
-});
-
-
-
    
 client.on('message' , message => {
 var prefix = "*"
@@ -287,6 +265,24 @@ message.channel.send(embed);
 
 }
     
+});
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('discord.gg')){
+      if(!message.member.hasPermission('ADMINISTRATOR'))
+        message.delete()
+    return message.reply(`** No Invites Links :angry: ! **`)
+    }
+});
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('discord.me')){
+      if(!message.member.hasPermission('ADMINISTRATOR'))
+        message.delete()
+    return message.reply(`** No Invites Links :angry: ! **`)
+    }
 });
 
 
