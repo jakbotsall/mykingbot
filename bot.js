@@ -5,6 +5,7 @@ const giphy = require('giphy-api')();
 const googl = require('goo.gl');  
 const translate = require('google-translate-api');   
 const fs = require("fs"); 
+var data = JSON.parse(fs.readFileSync('data.json','utf8'))
 const getYoutubeID = require('get-youtube-id'); 
 const moment = require("moment");  
 const { Client, Util } = require('discord.js');  
@@ -141,7 +142,7 @@ u.guild.members.get(ss.executor.id).roles.forEach(r => {
     fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
         if (err) console.log(err.message);
     });
-}).login("process.env.BOT_TOKEN");
+})
 
 
 
