@@ -412,14 +412,6 @@ message.channel.send(embed);
     
 });
 
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('discord.gg')){
-      if(!message.member.hasPermission('ADMINISTRATOR'))
-        message.delete()
-    return message.reply(`** No Invites Links :angry: ! **`)
-    }
-});
 
 client.on('message', message => {
     var args = message.content.split(/[ ]+/)
