@@ -24,6 +24,7 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const sql = require("sqlite");
  const dateFormat = require('dateformat'); 
  const pretty = require('pretty-ms') 
+ const prefix = "*";
 ,ti={}  
 ,spee={};
 
@@ -338,8 +339,7 @@ if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');
 
 
 
-   
-  client.on('message',function(message) {
+     client.on('message',function(message) {
   if (message.author.bot) return;
 
 
@@ -358,6 +358,7 @@ if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');
 
     }
       });
+
 
 
    
