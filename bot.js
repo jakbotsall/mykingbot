@@ -158,8 +158,6 @@ client.on('message', message => {
 .addField(':closed_lock_with_key: اوامـــر الادمـــنـــيــــة:closed_lock_with_key:','￵ ')
 .addField('*games','￵ ')
 .addField(':video_game: اوامـــر الالـــعـــاب:video_game: ','￵ ')
-.addField('*music','￵ ')
-.addField(':musical_note: اوامـــر الاغاني:musical_note: ','￵ ')
 .addField('༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻','￵ ')
 .setColor('RANDOM')
   message.channel.sendEmbed(embed);
