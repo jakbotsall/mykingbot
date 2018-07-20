@@ -702,8 +702,6 @@ const embed = new Discord.RichEmbed()
 
 :closed_lock_with_key: *move all  『سحب جميع الأعضاء لرومك الصوتي』
 
-:closed_lock_with_key: *rules  『لعرض قوانين السيرفر بامبيد』 
-
 :closed_lock_with_key: *roles  『لعرض رولات السيرفر』 
 
 :closed_lock_with_key: *rooms  『لعرض رومات السيرفر』 
