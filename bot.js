@@ -209,10 +209,6 @@ message.author.sendEmbed(embed)
 });
    
 
-client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","Member"));
-    });
-
 
 
 client.on('message', function(message) {
