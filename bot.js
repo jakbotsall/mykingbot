@@ -148,23 +148,28 @@ u.guild.members.get(ss.executor.id).roles.forEach(r => {
 
 
 
-client.on('message', message => {
-     if (message.content === "*help") {
-     let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.addField('༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻','￵ ')
-.addField(':يرجى استخدام الأوامر التالية ','￵. ')
-.addField('*public','￵ ')
-.addField(':earth_africa: الاوامــر الــعـــامـــة:earth_africa:','￵ ')
-.addField('*admin','￵ ')
-.addField(':closed_lock_with_key: اوامـــر الادمـــنـــيــــة:closed_lock_with_key:','￵ ')
-.addField('*games','￵ ')
-.addField(':video_game: اوامـــر الالـــعـــاب:video_game: ','￵ ')
-.addField('༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻','￵ ')
-.setColor('RANDOM')
-  message.channel.sendEmbed(embed);
-    }
-}); 
+client.on("message", message => {
+	var prefix = "*";
+ if (message.content === "*help") {
+  const embed = new Discord.RichEmbed()  
+      .setColor("#000000") 
+      .setDescription(`
+	  
+	       Help Commands: 
+
+			 
+${prefix}public ⇏ الاوامر العامة
+
+${prefix}admin ⇏ اوامر الادارة
+			 
+${prefix}games ⇏ اوامر الالعاب
+
+
+	  `)
+   message.channel.sendEmbed(embed)
+    
+   }
+   }); 
    
 
    client.on("message", message => {
