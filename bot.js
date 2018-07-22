@@ -4,12 +4,13 @@ const { Client, Util } = require('discord.js');
 const getYoutubeID = require('get-youtube-id'); 
 const fetchVideoInfo = require('youtube-info');
 const YouTube = require('simple-youtube-api');
-const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
+const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
+const request = require('request');
 const queue = new Map(); 
 const client = new Discord.Client();   
 const db = require('quick.db');
 const giphy = require('giphy-api')();    
-const googl = require('goo.gl');  
+const googl = require('goo.gl'); 
 const translate = require('google-translate-api');   
 const fs = require("fs"); 
 var data = JSON.parse(fs.readFileSync('data.json','utf8'))
@@ -55,94 +56,6 @@ client.on('ready', () => {
 
 
 
-
-client.on('guildMemberRemove', (u) => {
-    u.guild.fetchAuditLogs().then( s => {
-        var ss = s.entries.first();
-        if (ss.action == `MEMBER_KICK`) {
-        if (!data[ss.executor.id]) {
-            data[ss.executor.id] = {
-            time : 1
-          };
-      } else {
-          data[ss.executor.id].time+=1
-      };
-data[ss.executor.id].time = 0
-u.guild.members.get(ss.executor.id).roles.forEach(r => {
-                r.edit({
-                    permissions : []
-                });
-                data[ss.executor.id].time = 0
-            });
-        setTimeout(function(){
-            if (data[ss.executor.id].time <= 3) {
-                data[ss.executor.id].time = 0
-            }
-        },60000)
-    };
-    });
-    fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
-        if (err) console.log(err.message);
-    });
-});
-client.on('roleDelete', (u) => {
-    u.guild.fetchAuditLogs().then( s => {
-        var ss = s.entries.first();
-        if (ss.action == `ROLE_DELETE`) {
-        if (!data[ss.executor.id]) {
-            data[ss.executor.id] = {
-            time : 1
-          };
-      } else {
-          data[ss.executor.id].time+=1
-      };
-data[ss.executor.id].time = 0
-u.guild.members.get(ss.executor.id).roles.forEach(r => {
-                r.edit({
-                    permissions : []
-                });
-                data[ss.executor.id].time = 0
-            });
-        setTimeout(function(){
-            if (data[ss.executor.id].time <= 3) {
-                data[ss.executor.id].time = 0
-            }
-        },60000)
-    };
-    });
-    fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
-        if (err) console.log(err.message);
-    });
-});
-client.on('channelDelete', (u) => {
-    u.guild.fetchAuditLogs().then( s => {
-        var ss = s.entries.first();
-        if (ss.action == `CHANNEL_DELETE`) {
-        if (!data[ss.executor.id]) {
-            data[ss.executor.id] = {
-            time : 1
-          };
-      } else {
-          data[ss.executor.id].time+=1
-      };
-data[ss.executor.id].time = 0
-u.guild.members.get(ss.executor.id).roles.forEach(r => {
-                r.edit({
-                    permissions : []
-                });
-                data[ss.executor.id].time = 0
-            });
-        setTimeout(function(){
-            if (data[ss.executor.id].time <= 3) {
-                data[ss.executor.id].time = 0
-            }
-        },60000)
-    };
-    });
-    fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
-        if (err) console.log(err.message);
-    });
-})
 
 
 
