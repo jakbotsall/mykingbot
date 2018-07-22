@@ -176,8 +176,6 @@ client.on('message', message => {
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 	  
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ●
-
 الاوامــر الــعـــامـــة
 
 ⤠ *invite ~ لدعوة البوت الى سيرفرك
@@ -195,8 +193,6 @@ client.on('message', message => {
 ⤠ *embed ~ كتابة كلامك داخل امبد
 ⤠ *tag ~ يكتب لك الكلمة بشكل جميل وكبير
 ⤠ *contact ~ لارسال رسالة لصاحب البوت
-
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 	  
 `)
 
@@ -868,8 +864,6 @@ const embed = new Discord.RichEmbed()
       .setDescription(`
 	  
 	  
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
-
 اوامـــر الادمـــنـــيــــة
 
 ⤠ *ban ~ لتبنيد شخص ما من السيرفر
@@ -901,9 +895,6 @@ const embed = new Discord.RichEmbed()
 ⤠ *role all <rank> ~ لاعطاء الجميع رتبة
 ⤠ *role humans <rank> ~ لاعطاء البشريين رتبة 
 ⤠ *role bots <rank> ~ لاعطاء البوتات رتبة 
-
-
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 
 `)
 
