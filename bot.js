@@ -153,7 +153,7 @@ client.on('message', message => {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField('༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻༺༻','￵ ')
-.addField(':يرجى استخدام الأوامر التالية ','￵ ')
+.addField(':يرجى استخدام الأوامر التالية ','￵. ')
 .addField('*public','￵ ')
 .addField(':earth_africa: الاوامــر الــعـــامـــة:earth_africa:','￵ ')
 .addField('*admin','￵ ')
