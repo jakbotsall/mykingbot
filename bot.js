@@ -158,11 +158,11 @@ client.on("message", message => {
 	       Help Commands: 
 
 			 
-${prefix}public ⇏ الاوامر العامة
+${prefix}public ⥨ الاوامر العامة
 
-${prefix}admin ⇏ اوامر الادارة
+${prefix}admin ⥨ اوامر الادارة
 			 
-${prefix}games ⇏ اوامر الالعاب
+${prefix}games ⥨ اوامر الالعاب
 
 
 	  `)
@@ -177,7 +177,7 @@ ${prefix}games ⇏ اوامر الالعاب
         message.react("📫")
 	           message.react("✅")
   const embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
+      .setColor("#000000")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 	  
@@ -864,7 +864,7 @@ client.on('message', message => {
         message.react("📫")
 	           message.react("✅")
 const embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
+      .setColor("#000000")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 	  
@@ -1485,7 +1485,7 @@ if (message.member.voiceChannel == null) return message.channel.send(`**الرج
         message.react("📫")
 	           message.react("✅")
   const embed = new Discord.RichEmbed() 
-      .setColor("#ffff00")
+      .setColor("#000000")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 
