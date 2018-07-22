@@ -8,7 +8,6 @@ const fs = require("fs");
 var data = JSON.parse(fs.readFileSync('data.json','utf8'))
 const getYoutubeID = require('get-youtube-id'); 
 const moment = require("moment");
-const canvas = require('canvas');
 const { Client, Util } = require('discord.js');  
 const UserBlocked = new Set(); 
 const jimp = require('jimp');   
