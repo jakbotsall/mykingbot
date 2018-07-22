@@ -65,7 +65,7 @@ client.on("message", message => {
 	var prefix = "*";
  if (message.content === "*help") {
   const embed = new Discord.RichEmbed()  
-      .setColor("#000000") 
+      .setColor("#8325c0") 
       .setDescription(`
 	  
 	       Help Commands: 
@@ -90,7 +90,7 @@ ${prefix}games ⥨ اوامر الالعاب
         message.react("📫")
 	           message.react("✅")
   const embed = new Discord.RichEmbed() 
-      .setColor("#000000")
+      .setColor("#8325c0")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 	  
@@ -787,7 +787,7 @@ client.on('message', message => {
         message.react("📫")
 	           message.react("✅")
 const embed = new Discord.RichEmbed() 
-      .setColor("#000000")
+      .setColor("#8325c0")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 	  
@@ -1408,7 +1408,7 @@ if (message.member.voiceChannel == null) return message.channel.send(`**الرج
         message.react("📫")
 	           message.react("✅")
   const embed = new Discord.RichEmbed() 
-      .setColor("#000000")
+      .setColor("#8325c0")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
 
