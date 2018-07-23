@@ -742,7 +742,7 @@ if (message.content.startsWith(prefix + 'trans')) {
             .addField("**تاريخ دخولك للسيرفر**", `message.member.joinedAt`)
 	    .addField("**عدد الاعضاء**", `message.guild.memberCount`)
 	    .addField("**ايدي السيرفر**", `message.guild.id`)
-	    .addField("**موقع السيرفر**", `message.guild.region``)
+	    .addField("**موقع السيرفر**", `message.guild.region`)
             .setThumbnail(message.guild.iconURL)
             .setColor('RANDOM')
         message.channel.sendEmbed(embed)
