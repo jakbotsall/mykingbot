@@ -344,7 +344,6 @@ client.on('message', message => {
   .addField("`: اخر رسالة`", message.author.lastMessage)
   .addField('`: الحالة`', message.author.presence.status)
   
-  .setFooter('Requested By', message.author.tag)  
   .setTimestamp() 
    
    
