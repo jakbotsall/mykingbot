@@ -332,6 +332,24 @@ setInterval(function(){})
 
 
 
+client.on('message', message => {
+   if (message.content === "*id") {
+   let embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .setThumbnail(message.author.avatarURL)
+  .addField("الاسم:",`${message.author.username}`, true)
+  .addField('التاق:',"#" +  message.author.discriminator, true)
+  .addField("الايدي:", message.author.id, true)
+  .addField("يوم انشاء الحساب:", message.author.createdAt, true)
+  .addField("اخر رسالة:", message.author.lastMessage)
+  .addField('Presence', message.author.presence)
+  .addField('Presence Status', message.author.presence.status)
+  .addField('Presence Game', message.author.presence.activity.name)
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
 
 
 
