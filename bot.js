@@ -1379,10 +1379,11 @@ client.on('message', message => {
     var bc = new
        Discord.RichEmbed()
        .setColor('RANDOM')
-       .setTitle('📢البرودكاست') 
-       .addField('🔱السيرفر', message.guild.name)
-       .addField('🗣المرسل', message.author.username)
-       .addField('✉️الرساله', args)
+       .setTitle('__**📢البرودكاست**__') 
+       .addField(' ￼ ')
+       .addField('**🔱السيرفر**', message.guild.name)
+       .addField('**🗣المرسل**', message.author.username)
+       .addField('**✉️الرساله**', args)
        .setFooter(copy, client.user.avatarURL);
     m.send({ embed: bc })
     msg.delete();
