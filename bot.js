@@ -344,7 +344,6 @@ client.on('message', message => {
   .addField("اخر رسالة:", message.author.lastMessage)
   .addField('Presence', message.author.presence)
   .addField('Presence Status', message.author.presence.status)
-  .addField('Presence Game', message.author.presence.activity.name)
      
      
   message.channel.sendEmbed(embed);
