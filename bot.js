@@ -190,7 +190,7 @@ ${prefix}admin ⥨ اوامر الادارة
 ${prefix}games ⥨ اوامر الالعاب
 
 
-               Other Commands:
+Other Commands:
 
 
 ${prefix}invite ⥨ لدعوة البوت الى سيرفرك
@@ -824,15 +824,14 @@ client.on('message', message => {
             .setAuthor(client.user.username,client.user.avatarURL)
             .setThumbnail(client.user.avatarURL)
             .setColor('RANDOM')
-            .setTitle('``ABOUT King Bot`` ')
-            .addField('``سرعة البوت``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
-            .addField('``السيرفرات``', [client.guilds.size], true)
-            .addField('``الرومات``' , `[ ${client.channels.size} ]` , true)
-            .addField('``المستخدمين``' ,`[ ${client.users.size} ]` , true)
-            .addField('``الاسم``' , `[ ${client.user.tag} ]` , true)
-            .addField('``الايدي``' , `[ ${client.user.id} ]` , true)
-			      .addField('``البرفكس``' , `[ * ]` , true)
-			      .setFooter('By | ! ~ D e v i l')
+            .addField('``سرعة البوت:incoming_envelope:``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
+            .addField('``السيرفرات:globe_with_meridians:``', [client.guilds.size], true)
+            .addField('``الرومات:thought_balloon:``' , `[ ${client.channels.size} ]` , true)
+            .addField('``المستخدمين:busts_in_silhouette:``' ,`[ ${client.users.size} ]` , true)
+            .addField('``الاسم:crown:``' , `[ ${client.user.tag} ]` , true)
+            .addField('``الايدي:id:``' , `[ ${client.user.id} ]` , true)
+			      .addField('``البرفكس:eight_pointed_black_star:``' , `[ * ]` , true)
+			      .setFooter(copy, client.user.avatarURL);
     })
 }
 });
