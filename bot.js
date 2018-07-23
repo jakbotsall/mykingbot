@@ -1379,8 +1379,7 @@ client.on('message', message => {
     var bc = new
        Discord.RichEmbed()
        .setColor('RANDOM')
-       .setTitle('__**📢البرودكاست**__') 
-       .addField(' ￼ ')
+       .setTitle('__**📢البرودكاست📢**__') 
        .addField('**🔱السيرفر**', message.guild.name)
        .addField('**🗣المرسل**', message.author.username)
        .addField('**✉️الرساله**', args)
