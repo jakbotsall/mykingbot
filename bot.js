@@ -220,6 +220,7 @@ ${prefix}games ⥨ اوامر الالعاب
 ⤠ *embed ~ كتابة كلامك داخل امبد
 ⤠ *tag ~ يكتب لك الكلمة بشكل جميل وكبير
 ⤠ *contact ~ لارسال رسالة لصاحب البوت
+⤠ *support ~ لدخول سيرفر دعم البوت
 	  
 `)
 
@@ -763,7 +764,23 @@ if (message.content.startsWith(prefix + 'trans')) {
   
   
   
-  
+ 
+
+
+
+   client.on('message', message => {
+     if (message.content === "*support") {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#9B59B6")
+  .addField(" ** :scales:سيرفر الدعم:scales:  **" , "  **https://discord.gg/feMu8XW**")
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
   
   
   
