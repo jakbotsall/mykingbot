@@ -343,6 +343,7 @@ client.on('message', message => {
   .addField("`: تاريخ انشاء الحساب`", message.author.createdAt, true)
   .addField("`: اخر رسالة`", message.author.lastMessage)
   .addField('`: الحالة`', message.author.presence.status)
+  
   .setFooter('Requested By', message.author.tag)  
   .setTimestamp() 
    
