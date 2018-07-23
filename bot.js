@@ -58,48 +58,6 @@ client.on('ready', () => {
 
 
 
-client.on('message',function(msg) {
-  if(msg.content.startsWith(prefix + 'tempmute')) {
-    let messagearray = msg.content.split(" ");
-    let cmd = messagearray[0];
-    let args = messagearray.slice(1);
-    let Muser = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
-    if(!Muser) return msg.channel.send("**لم يتم العثور عن العضو الذي تريد اسكاته")
-    if(!msg.member.hasPermission("ADMINISTRATOR")) return msg.channel.reply("**ليست لديك صلاحية الاسكات**");
-    if(Muser.hasPermission("ADMINISTRATOR")) return msg.channel.send("**لايمكن اسكات هذا العضو**")
-    
-    let Membed = new Discord.RichEmbed() 
-    .setColor("RANDOM")
-    .setTitle(":eight_pointed_black_star: :heavy_minus_sign: ༺**تم اسكات العضو**༻ :heavy_minus_sign: :eight_pointed_black_star:")
-	.addField("**:busts_in_silhouette:  المستخدم**", `**[${Muser}]**`)
-	.addField("**:hammer:  تم بواسطة **", `**[${msg.author}]**`)
-    .setTimestamp()
-
-    let muterole = msg.guild.roles.find('name', "mute")
-    if(!muterole) return msg.channel.send("**لم يتم العثور على رتبة الميوت**")
-    msg.guild.channels.forEach(async (channel, id) => {
-      await channel.overwritePermissions(muterole ,{
-        SEND_MESSAGES: false,
-        ADD_REACTIONS: false
-      });
-    });
-  
-    let mutetime = args[1];
-    if(!mutetime) return msg.channel.send("**يرجى كتابة وقت**");
-
-    Muser.addRole(muterole.id);
-    msg.channel.send(`<@${Muser.id}> تم اسكات لمدة ${ms(ms(mutetime))}`);
-    Mchannel.send(Membed);
-
-    setTimeout(function() {
-      Muser.removeRole(muterole.id)
-      msg.channel.send(`<@${Muser.id}>تم فك السكوت عن `);
-  }, ms(mutetime));
-   
-}});
-
-
-
 
 client.on('guildMemberRemove', (u) => {
     u.guild.fetchAuditLogs().then( s => {
@@ -1287,88 +1245,30 @@ client.on('message' , message => {
 });
    
 
-client.on('message', async message => {
-  if(message.author.bot) return;
-  if(message.channel.type === "dm") return;
 
-  let args = message.content.split(" ");
-  let command = args[0];
+    client.on("message", message => {
+    var prefix = "*";
+ 
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "clearall")) {
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **لا يوجد لديك صلاحية لمسح الشات**');
+        var msg;
+        msg = parseInt();
+      
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "Done | تــم مسح الشات",
+        color: 0x06DF00,
+        description: "تم مسح الرسائل ",
+        footer: {
+          text: "! ~ D e v i l"
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
 
-  if(message.content.startsWith(prefix + "clearall")) {
-    if(!message.member.hasPermission("MANAGEP_MESSAGES")) return message.reply('**انت لا تملك الخصائص الكافية.**').then(msg => {
-      msg.delete(3500);
-      message.delete(3500);
-    });
+     
+});  
 
-    if(!args[1]) {
-      var stop = true;
-      var msg = parseInt(100);
-
-      stop = false;
-      setTimeout(() => {
-        stop = true;
-      },3005);
-      setInterval(() => {
-        if(stop === true) return;
-        message.channel.fetchMessages({
-          limit: msg
-        }).then(m => {
-          message.channel.bulkDelete(msg).then(() => {
-            message.channel.send(`${message.author},\n\`\`\`تم مسح الرسائل بنجاح\`\`\``).then(msg => {
-              msg.delete(3000);
-            });
-          });
-        });
-      },1000);
-    } else if(args[1]) {
-      if(args[1] <= 100) {
-          message.channel.fetchMessages({
-              limit: msg
-          }).then(m => {
-              message.channel.bulkDelete(m).then(() => {
-                  message.channel.send(`${message.author},\n\`\`\`تم مسح الرسائل بنجاح\`\`\``).then(msg => {
-              msg.delete(3000);
-                  });
-              });
-          });
-      } else if(args[1] <= 200) {
-        stop = true;
-        setTimeout(() => {
-          stop = false;
-        },2001);
-        setInterval(() => {
-          if(stop === true) return;
-          message.channel.fetchMessages({
-            limit: msg
-          }).then(m => {
-            message.channel.bulkDelete(m).then(() => {
-                message.channel.send(`${message.author},\n\`\`\`تم مسح الرسائل بنجاح\`\`\``).then(msg => {
-              msg.delete(3000);
-                  });
-            });
-          });
-        },1000);
-      } else if(args[1] <= 300) {
-        stop = true;
-        setTimeout(() => {
-          stop = false;
-        },2001);
-        setInterval(() => {
-          if(stop === true) return;
-          message.channel.fetchMessages({
-            limit: msg
-          }).then(m => {
-            message.channel.bulkDelete(m).then(() => {
-            message.channel.send(`${message.author},\n\`\`\`تم مسح الرسائل بنجاح\`\`\``).then(msg => {
-              msg.delete(3000);
-                  });
-            });
-          });
-        });
-      }
-    }
-  }
-});
 
 
 
