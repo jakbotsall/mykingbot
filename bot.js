@@ -1380,9 +1380,9 @@ client.on('message', message => {
        Discord.RichEmbed()
        .setColor('RANDOM')
        .setTitle('__**📢Broadcast📢**__') 
-       .addField('**🔱Server**', message.guild.name)
+       .addField('**🔸Server**', message.guild.name)
        .addField('**🗣Sender**', message.author.username)
-       .addField('**✉️Message**', args)
+       .addField('**📖Message**', args)
        .setFooter(copy, client.user.avatarURL);
     m.send({ embed: bc })
     msg.delete();
