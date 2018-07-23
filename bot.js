@@ -1379,7 +1379,7 @@ client.on('message', message => {
     var bc = new
        Discord.RichEmbed()
        .setColor('RANDOM')
-       .setTitle('__**📢Brodcast📢**__') 
+       .setTitle('__**📢Broadcast📢**__') 
        .addField('**🔱Server**', message.guild.name)
        .addField('**🗣Sender**', message.author.username)
        .addField('**✉️Message**', args)
