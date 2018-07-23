@@ -831,7 +831,7 @@ client.on('message', message => {
             .addField('``الاسم:crown:``' , `[ ${client.user.tag} ]` , true)
             .addField('``الايدي:id:``' , `[ ${client.user.id} ]` , true)
 			      .addField('``البرفكس:eight_pointed_black_star:``' , `[ * ]` , true)
-			      .setFooter(client.user.avatarURL);
+			      .setFooter(message.user.avatarURL)
     })
 }
 });
