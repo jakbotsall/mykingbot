@@ -735,12 +735,14 @@ if (message.content.startsWith(prefix + 'trans')) {
         const days = millis / 1000 / 60 / 60 / 24;
         let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
         var embed = new Discord.RichEmbed()
-            .addField("**اونر السيرفر**", message.guild.owner)
-            .addField("**تاريخ انشاء السيرفر**", message.guild.createdAt)
-            .addField("**تاريخ دخولك للسيرفر**", message.member.joinedAt)
-	    .addField("**عدد الاعضاء**", message.guild.memberCount)
-	    .addField("**ايدي السيرفر**", message.guild.id)
-	    .addField("**موقع السيرفر**", message.guild.region)
+	    .setTitle("**__معلومات عن السيرفر__**"
+            .addField("**اسم السيرفر**", `message.guild.name`)            
+            .addField("**اونر السيرفر**", `message.guild.owner`)
+            .addField("**تاريخ انشاء السيرفر**", `message.guild.createdAt`)
+            .addField("**تاريخ دخولك للسيرفر**", `message.member.joinedAt`)
+	    .addField("**عدد الاعضاء**", `message.guild.memberCount`)
+	    .addField("**ايدي السيرفر**", `message.guild.id`)
+	    .addField("**موقع السيرفر**", `message.guild.region``)
             .setThumbnail(message.guild.iconURL)
             .setColor('RANDOM')
         message.channel.sendEmbed(embed)
