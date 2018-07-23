@@ -1345,6 +1345,7 @@ client.on('message', message => {
        .addField('**🔸Server**', message.guild.name)
        .addField('**🗣Sender**', message.author.username)
        .addField('**📖Message**', args)
+       .setTimestamp() 
        .setFooter(copy, client.user.avatarURL);
     m.send({ embed: bc })
     msg.delete();
