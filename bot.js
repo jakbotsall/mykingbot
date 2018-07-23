@@ -751,9 +751,10 @@ if (message.content.startsWith(prefix + 'trans')) {
 
     }
 });
-  
-  
-  
+
+
+
+  client.on('message', message => {
  if (message.content.startsWith(prefix + 'serverinfo')) {
   const embed = new Discord.RichEmbed()
   embed.addField('Members', message.guild.memberCount, true)
