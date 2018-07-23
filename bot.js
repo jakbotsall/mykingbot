@@ -334,7 +334,7 @@ setInterval(function(){})
 
 client.on('message', message => { //Message Event | Listener
 
-    if (message.content.startsWith(PREFIX + 'Userinfo')) {
+    if (message.content.startsWith(prefix + 'Userinfo')) {
 
         const UserInfo = new Discord.MessageEmbed()
 
@@ -368,7 +368,6 @@ client.on('message', message => { //Message Event | Listener
             .addField('Presence Game', message.author.presence.activity.name) //The presence Game of this user
             .addField('Tag', message.author.tag) //The Discord "tag" for this user || Ex:- Sai Chinna#6718
             .addField('Username', message.author.username) //The username of the user || Ex:- Sai Chinna
-            .addField('Nick Name', message.guild.member(target).displayName) //Nick Name In That (message sent) server || Define target as message Author Ex:- let target = message.author; || Add This Line in Top
 
             .setFooter('Requested By', message.author.tag) //Change To Anything As You Wish
             .setTimestamp() //The timestamp of this embed
