@@ -55,12 +55,6 @@ client.on('ready', () => {
 });
 
 
-
-
-
-
-
-
 client.on('guildMemberRemove', (u) => {
     u.guild.fetchAuditLogs().then( s => {
         var ss = s.entries.first();
