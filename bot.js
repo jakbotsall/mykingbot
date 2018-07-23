@@ -984,7 +984,7 @@ const embed = new Discord.RichEmbed()
 
 ⤠ *ban ~ لتبنيد شخص ما من السيرفر
 ⤠ *kick ~ لتعطي شخص كيك
-⤠ *clearall ~ لمسح اكثر من 1000 رسالة بالشات
+⤠ *clearall ~ لمسح 300 رسالة بالشات
 ⤠ *clear <numb> ~ لمسح عدد الرسائل التي تريدها
 ⤠ *mute ~ لاعطاء شخص ما ميوت 
 ⤠ *mutechannel ~ لتقفيل الشات 
