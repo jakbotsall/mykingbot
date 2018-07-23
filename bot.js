@@ -741,8 +741,6 @@ if (message.content.startsWith(prefix + 'trans')) {
 	    .addField("**عدد الاعضاء**", message.guild.memberCount)
 	    .addField("**ايدي السيرفر**", message.guild.id)
 	    .addField("**موقع السيرفر**", message.guild.region)
-	    .addField("**رولات السيرفر**", message.guild.roles.size)
-            .addField("**رومات السيرفر**", message.guild.channel.size)
             .setThumbnail(message.guild.iconURL)
             .setColor('RANDOM')
         message.channel.sendEmbed(embed)
