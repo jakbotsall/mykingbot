@@ -186,6 +186,14 @@ ${prefix}admin ⥨ اوامر الادارة
 ${prefix}games ⥨ اوامر الالعاب
 
 
+               Other Commands:
+
+
+${prefix}invite ⥨ لدعوة البوت الى سيرفرك
+
+${prefix}support ⥨ لدخول سيرفر الدعم
+
+
 	  `)
    message.channel.sendEmbed(embed)
     
@@ -204,23 +212,23 @@ ${prefix}games ⥨ اوامر الالعاب
 	  
 الاوامــر الــعـــامـــة
 
-⤠ *invite ~ لدعوة البوت الى سيرفرك
-⤠ *server ~ معلومات عن السيرفر                      
-⤠ *say ~ البوت يردد كلامك         
-⤠ *setcolor ~ عشان تغير لونك ملاحظة لازم تحط رقم اللون                                          
-⤠ *bot ~ معلومات عن البوت
-⤠ *ping ~ لمعرفه سرعه البوت
-⤠ *members ~ معلومات عن الاعضاء
-⤠ *emojilist ~ لعرض الايموجي حقت السيرفر
-⤠ *id ~ لمعرفة معلومات حسابك』
-⤠ *avatar ~ لاعطائك صورة الشخص اللي منشنته مع الرابط
-⤠ *link ~ يعطيك رابط انفايت للسيرفر اللي انت فيه
-⤠ *trans <language> <any thing> ~ يترجم لك الي تبيه من اي لغة
-⤠ *short ~ لاختصار الروابط
-⤠ *embed ~ كتابة كلامك داخل امبد
-⤠ *tag ~ يكتب لك الكلمة بشكل جميل وكبير
-⤠ *contact ~ لارسال رسالة لصاحب البوت
-⤠ *support ~ لدخول سيرفر دعم البوت
+⤠ *invite ⥨ لدعوة البوت الى سيرفرك
+⤠ *server ⥨ معلومات عن السيرفر                      
+⤠ *say ⥨ البوت يردد كلامك         
+⤠ *setcolor ⥨ عشان تغير لونك ملاحظة لازم تحط رقم اللون                                          
+⤠ *bot ⥨ معلومات عن البوت
+⤠ *ping ⥨ لمعرفه سرعه البوت
+⤠ *members ⥨ معلومات عن الاعضاء
+⤠ *emojilist ⥨ لعرض الايموجي حقت السيرفر
+⤠ *id ⥨ لمعرفة معلومات حسابك
+⤠ *avatar ⥨ لاعطائك صورة الشخص اللي منشنته مع الرابط
+⤠ *link ⥨ يعطيك رابط انفايت للسيرفر اللي انت فيه
+⤠ *trans <language> <any thing> ⥨ يترجم لك الي تبيه من اي لغة
+⤠ *short ⥨ لاختصار الروابط
+⤠ *embed ⥨ كتابة كلامك داخل امبد
+⤠ *tag ⥨ يكتب لك الكلمة بشكل جميل وكبير
+⤠ *contact ⥨ لارسال رسالة لصاحب البوت
+⤠ *support ⥨ لدخول سيرفر دعم البوت
 	  
 `)
 
@@ -689,6 +697,35 @@ message.channel.send({embed});
 });
 
 
+
+
+client.on('message', function(msg) {
+    if(msg.content.startsWith (prefix + 'user')) {
+    msg.guild.fetchInvites().then(invs => {
+        let user = msg.mentions.users.first() || msg.author
+        let personalInvites = invs.filter(i => i.inviter.id === user.id);
+        let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+        let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(msg.author.avatarURL)
+        .setTitle(`:eight_pointed_black_star: :heavy_minus_sign: ༺${msg.author.username}༻ :heavy_minus_sign: :eight_pointed_black_star:`)
+        .addField('**UserName**', `[${msg.author.username}]
+            :heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign:`,true)
+        .addField('**UserID**', `[${msg.author.id}]
+            :heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign:`,true)
+        .addField('**Invites**', `[${inviteCount}]
+            :heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign::heavy_minus_sign:`,true)
+
+
+        .setFooter(`- Requested By: ${msg.author.username}`)
+
+        msg.channel.send({embed}); 
+    })
+}
+});
+
+
+
  const Langs = ['afrikaans', 'albanian', 'amharic', 'arabic', 'armenian', 'azerbaijani', 'bangla', 'basque', 'belarusian', 'bengali', 'bosnian', 'bulgarian', 'burmese', 'catalan', 'cebuano', 'chichewa', 'chinese simplified', 'chinese traditional', 'corsican', 'croatian', 'czech', 'danish', 'dutch', 'english', 'esperanto', 'estonian', 'filipino', 'finnish', 'french', 'frisian', 'galician', 'georgian', 'german', 'greek', 'gujarati', 'haitian creole', 'hausa', 'hawaiian', 'hebrew', 'hindi', 'hmong', 'hungarian', 'icelandic', 'igbo', 'indonesian', 'irish', 'italian', 'japanese', 'javanese', 'kannada', 'kazakh', 'khmer', 'korean', 'kurdish (kurmanji)', 'kyrgyz', 'lao', 'latin', 'latvian', 'lithuanian', 'luxembourgish', 'macedonian', 'malagasy', 'malay', 'malayalam', 'maltese', 'maori', 'marathi', 'mongolian', 'myanmar (burmese)', 'nepali', 'norwegian', 'nyanja', 'pashto', 'persian', 'polish', 'portugese', 'punjabi', 'romanian', 'russian', 'samoan', 'scottish gaelic', 'serbian', 'sesotho', 'shona', 'sindhi', 'sinhala', 'slovak', 'slovenian', 'somali', 'spanish', 'sundanese', 'swahili', 'swedish', 'tajik', 'tamil', 'telugu', 'thai', 'turkish', 'ukrainian', 'urdu', 'uzbek', 'vietnamese', 'welsh', 'xhosa', 'yiddish', 'yoruba', 'zulu'];
 
 client.on('message', message => {
@@ -857,14 +894,12 @@ client.on('message', message => {
             .setColor('RANDOM')
             .setTitle('``ABOUT King Bot`` ')
             .addField('``سرعة البوت``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
-            .addField('``الذاكرة المستخدمة``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
             .addField('``السيرفرات``', [client.guilds.size], true)
             .addField('``الرومات``' , `[ ${client.channels.size} ]` , true)
             .addField('``المستخدمين``' ,`[ ${client.users.size} ]` , true)
             .addField('``الاسم``' , `[ ${client.user.tag} ]` , true)
             .addField('``الايدي``' , `[ ${client.user.id} ]` , true)
 			      .addField('``البرفكس``' , `[ * ]` , true)
-			      .addField('``اللغة``' , `[ Java Script ]` , true)
 			      .setFooter('By | ! ~ D e v i l')
     })
 }
