@@ -224,10 +224,10 @@ message.author.sendEmbed(embed)
 client.on('guildCreate', guild => {
          const embed = new Discord.RichEmbed()
      .setColor("RED")
-     .setTitle('Click Here To Add Bot .!')
+     .setTitle('Click Here To The Add Bot .!')
      .setURL('https://discordapp.com/oauth2/authorize?client_id=456934284566069248&permissions=8&scope=bot')
   .setDescription(`**
-  A New Server Just Added King | Bot ✅
+  Someone Added Me ✅
 اسم السيرفر: ${guild.name}
 صاحب السيرفر: ${guild.owner}**`);
 client.channels.get("470259549774020608").sendEmbed(embed)
@@ -236,10 +236,10 @@ client.channels.get("470259549774020608").sendEmbed(embed)
 client.on('guildDelete', guild => {
          const embed = new Discord.RichEmbed()
      .setColor("GOLD")
-     .setTitle('Click Here To Add Bot .!')
+     .setTitle('Click Here To The Add Bot .!')
      .setURL('https://discordapp.com/oauth2/authorize?client_id=456934284566069248&permissions=8&scope=bot')
   .setDescription(`**
-  King | Bot Got Kicked From A Server :cry:
+  I Got Kicked :cry:
 اسم السيرفر: ${guild.name}
 صاحب السيرفر: ${guild.owner}**`);
 client.channels.get("470259562121920512").sendEmbed(embed)
@@ -270,20 +270,7 @@ client.on('ready', function(){
 
 
 
-client.on('voiceStateUpdate', (codes, ReBeL) => {
-if(ReBeL.voiceChannelID !== "470262015282249729") return console.log("أيرور . ");
-ReBeL.guild.createChannel(ReBeL.user.username , 'voice').then((rebeeel) =>{
-    rebeeel.setParent("470261882058571777");
-ReBeL.guild.members.get(ReBeL.id).setVoiceChannel(rebeeel.id).then((codess) =>{
-  console.log("تــــــم .");
-  let scan = setInterval(()=>{
-if(!ReBeL.voiceChannel) {
-  rebeeel.delete();
-}
-  }, 1700);
-});
-});
-});
+
 
 
 client.on('message', message => {
