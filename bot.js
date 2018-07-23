@@ -344,14 +344,6 @@ client.on('message', message => {
   .addField("`: اخر رسالة`", message.author.lastMessage)
   .addField('`: الحالة`', message.author.presence.status)
   .addField('Avatar', message.author.avatar, true)
-  .addField('AvatarURL', message.author.avatarURL({
-	  format: 'png'
-  }), true)
-  .addField('AvatarURL', message.author.avatarURL({
-	  size: '2048'
-  }), true)
-  
-  
   .setFooter('Requested By', message.author.tag)  
   .setTimestamp() 
    
