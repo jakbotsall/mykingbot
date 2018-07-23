@@ -274,7 +274,7 @@ client.channels.get("470259562121920512").sendEmbed(embed)
 
 client.on('ready', function(){
     var ms = 10000 ;
-    var setGame = ['In 61 Server','*help | *invite','In 61 Server','*help | *invite','In 61 Server'];
+    var setGame = ['In 63 Server','*help | *invite','In 63 Server','*help | *invite','In 63 Server'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -754,7 +754,17 @@ if (message.content.startsWith(prefix + 'trans')) {
   
   
   
- 
+ if (message.content.startsWith(prefix + 'serverinfo')) {
+  const embed = new Discord.RichEmbed()
+  embed.addField('Members', message.guild.memberCount, true)
+  embed.addField('Name', message.guild.name, true)
+  embed.addField('Region', message.guild.region, true)
+  embed.addField('Owner', message.guild.owner, true)
+  embed.addField('ID', message.guild.id, true)
+  embed.setColor(`ff0000`)
+  embed.setThumbnail(message.guild.iconURL)
+  message.channel.sendEmbed(embed)
+}
 
 
 
