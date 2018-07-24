@@ -372,7 +372,6 @@ client.on('message', message => {
   .addField("`: اخر رسالة`", message.author.lastMessage)
   .addField('`: الحالة`', message.author.presence.status)
   .addField("`: تاريخ انشاء الحساب`", message.author.createdAt, true)
-  .addField("**تاريخ دخولك للسيرفر**", message.author.joinedAt)
   
   .setTimestamp() 
    
