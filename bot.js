@@ -56,6 +56,8 @@ client.on('ready', () => {
 
 
 
+
+
 client.on('message', function(msg) {
     if(msg.content.startsWith (prefix  + 'server')) {
       let embed = new Discord.RichEmbed()
