@@ -1566,7 +1566,6 @@ if (message.member.voiceChannel == null) return message.channel.send(`**الرج
 ⤠ *لعبة الصراحة ~ صراحة  
 ⤠ *يعطيك عقاب للخاسر ~ عقاب   
 ⤠ *معلومات عن الاسلام ~ دين    
-⤠ *لعبة الايموجي ~ ايموجي    
 
 `)
 
