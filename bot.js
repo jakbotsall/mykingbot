@@ -1362,11 +1362,13 @@ client.on('message', message => {
     })
 	
 	
-	client.on("message", (message) => {
+client.on("message", (message) => {
 if (message.content.startsWith("*ct")) {
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
-   
-	
+        let args = message.content.split(" ").slice(1);
+    message.guild.createChannel(args.join(' '), 'text');
+message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
+
 }
 });	
 	
@@ -1799,6 +1801,7 @@ let welcomer = member.guild.channels.find("name","welcome");
         .setThumbnail(h.avatarURL)
         .setAuthor(h.username,h.avatarURL)
         .addField(': تاريخ دخولك الدسكورد',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(member.user.createdAt).fromNow()}\``,true)
+        .addField(': تاريخ دخولك للسيرفر',`${moment(member.user.joinedAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(member.user.joinedAt).fromNow()}\``,true)
          .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
      welcomer.send({embed:norelden});          
                
