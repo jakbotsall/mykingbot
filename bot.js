@@ -73,7 +73,7 @@ client.on('message', function(msg) {
       .addField('`الأونـر`',`**${msg.guild.owner}**`,true)
       .addField('`ايدي السيرفر`',`**${msg.guild.id}**`,true)
       .addField('`الرتب`',`[** __${msg.guild.roles.size}__ **]`,true)
-      .addField('`تم عمل السيرفر في`',msg.guild.createdAt)
+      .addField('`تاريخ انشاء السيرفر`',msg.guild.createdAt)
       msg.channel.send({embed:embed});
     }
   });    
