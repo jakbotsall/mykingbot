@@ -70,11 +70,11 @@ client.on('ready', () => {
         .setTitle("__**معلومات عن السيرفر**__"	 
         .addField("**اسم السيرفر**", message.guild.name, true)		
         .addField("**اونر السيرفر**", message.guild.owner, true)	    		
-	    .addField("**عدد الاعضاء**", message.guild.memberCount, true)
-	    .addField("**ايدي السيرفر**", message.guild.id, true)
-	    .addField("**موقع السيرفر**", message.guild.region, true)	
-		.addField("**تاريخ انشاء السيرفر**", message.guild.createdAt, true)          
-        .addField("**تاريخ دخولك للسيرفر**", message.member.joinedAt, true)
+        .addField("**عدد الاعضاء**", message.guild.memberCount, true)
+	.addField("**ايدي السيرفر**", message.guild.id, true)
+	.addField("**موقع السيرفر**", message.guild.region, true)	
+	.addField("**تاريخ انشاء السيرفر**", message.guild.createdAt, true)          
+        .addField("**تاريخ دخولك للسيرفر**", message.member.joinedAt, true);
              .setThumbnail(message.guild.iconURL)	             
              .setColor('RANDOM')	             
          message.channel.sendEmbed(embed)
