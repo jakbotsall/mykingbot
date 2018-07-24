@@ -74,7 +74,6 @@ client.on('ready', () => {
 	.addField("**عدد الاعضاء👥**", message.guild.memberCount)
 	.addField("**موقع السيرفر🌍**", message.guild.region)	
 	.addField("**تاريخ انشاء السيرفر📆**", message.guild.createdAt)          
-        .addField("**تاريخ دخولك للسيرفر📆**", message.member.joinedAt)
              .setThumbnail(message.guild.iconURL)	             
              .setColor('RANDOM')	             
          message.channel.sendEmbed(embed)
@@ -370,9 +369,10 @@ client.on('message', message => {
   .addField("`: الاسم`",`${message.author.username}`, true)
   .addField('`: التاق`',"#" +  message.author.discriminator, true)
   .addField("`: الايدي`", message.author.id, true)
-  .addField("`: تاريخ انشاء الحساب`", message.author.createdAt, true)
   .addField("`: اخر رسالة`", message.author.lastMessage)
   .addField('`: الحالة`', message.author.presence.status)
+  .addField("`: تاريخ انشاء الحساب`", message.author.createdAt, true)
+  .addField("**تاريخ دخولك للسيرفر**", message.author.joinedAt)
   
   .setTimestamp() 
    
