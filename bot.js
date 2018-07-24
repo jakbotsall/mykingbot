@@ -274,7 +274,7 @@ client.channels.get("470259562121920512").sendEmbed(embed)
 
 client.on('ready', function(){
     var ms = 10000 ;
-    var setGame = ['In 63 Server','*help | *invite','In 63 Server','*help | *invite','In 63 Server'];
+    var setGame = ['In 66 Server','*help | *invite','In 66 Server','*help | *invite','In 66 Server'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -487,7 +487,7 @@ client.on('message', function(message) {
      message.member.addRole(muterole);
     const embed500 = new Discord.RichEmbed()
       .setTitle("معاقب")
-            .addField(`**  لقد تمت معاقبتك بميوت كتابي **` , `**السبب : نشر روابط سيرفرات**`)
+            .addField(`** ⚖️ بسبب نشر الروابط **`)
             .setColor("c91616")
             .setThumbnail(`${message.author.avatarURL}`)
             .setAuthor(message.author.username, message.author.avatarURL)
