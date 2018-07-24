@@ -75,7 +75,7 @@ client.on('ready', () => {
     	       .addField("**ايدي السيرفر**", message.guild.id)	
     	       .addField("**موقع السيرفر**", message.guild.region)	
                .setThumbnail(message.guild.iconURL)	
-               .setColor('RANDOM')	
+               .setColor('#934bdb')	
             message.channel.sendEmbed(embed)	
           
          }	
