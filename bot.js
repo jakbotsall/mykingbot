@@ -62,15 +62,18 @@ client.on('message', function(msg) {
       .setColor('RANDOM')
       .setThumbnail(msg.guild.iconURL)
       .setTitle(`__**ServerInfo**__`)
+      .addField('`اسم السيرفر`',`[** __${msg.guild.name}__ **]`,true)
       .addField('`نوع السيرفر`',`[** __${msg.guild.region}__ **]`,true)
       .addField('`الرتب`',`[** __${msg.guild.roles.size}__ **]`,true)
       .addField('`عدد الاعضاء`',`[** __${msg.guild.memberCount}__ **]`,true)
+      .addField('`عدد البشريين`',`[** __${msg.member.guild.members.filter(m => !m.user.bot).size}__ **]`,true)
+      .addField('`عدد البوتات`',`[** __${msg.member.guild.members.filter(m => m.user.bot).size}__ **]`,true)
       .addField('`عدد الاعضاء الاونلاين`',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
       .addField('`الرومات الكتابية`',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
       .addField('`رومات الصوت`',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
       .addField('`الأونـر`',`**${msg.guild.owner}**`,true)
       .addField('`ايدي السيرفر`',`**${msg.guild.id}**`,true)
-      .addField('`تم عمل السيرفر في`',msg.guild.createdAt.toLocaleString())
+      .addField('`تم عمل السيرفر في`',msg.guild.createdAt)
       msg.channel.send({embed:embed});
     }
   });    
