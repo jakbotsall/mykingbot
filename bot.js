@@ -751,7 +751,7 @@ client.on('message', message => {
                 if(message.content === prefix + "invite") {
                     let embed = new Discord.RichEmbed ()
                     embed.setTitle("**:point_right: اضغط هنا**")
-                  .setFooter(`King Bot `,'https://cdn.discordapp.com/attachments/464815952480043020/466175951365996559/crown-wing-typography-260nw-278524421_1.jpg')
+                  .setFooter(`King Bot `,'https://cdn.discordapp.com/attachments/457004554869932033/471106003249659914/image.jpg')
                   .setURL("https://goo.gl/ADmgeW");
                    message.channel.sendEmbed(embed);
                   }
