@@ -516,7 +516,7 @@ client.on('message', function(message) {
      message.member.addRole(muterole);
     const embed500 = new Discord.RichEmbed()
       .setTitle("معاقب")
-            .addField(`** ⚖️ بسبب نشر الروابط **`)
+            .addField(`** ⚖️ بسبب نشر الروابط **`,`** ￼ **`)
             .setColor("c91616")
             .setThumbnail(`${message.author.avatarURL}`)
             .setAuthor(message.author.username, message.author.avatarURL)
