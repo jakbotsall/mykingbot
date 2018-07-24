@@ -57,31 +57,30 @@ client.on('ready', () => {
 
 
 
-
-  client.on('message', message => {
+      client.on('message', message => {
     if (message.content === "*server") {
         if (!message.channel.guild) return;
         const millis = new Date().getTime() - message.guild.createdAt.getTime();
         const now = new Date(); //KingBot
 
-        const days = millis / 1000 / 60 / 60 / 24;
-        let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
-        var embed = new Discord.RichEmbed()
-		.setAuthor(message.guild.name, message.guild.iconURL)
-		.addField("**اونر السيرفر :crown: **","**"+ message.guild.owner + "**", true)
-		 .addField("**ايدي السيرفر :id:**", "**" + message.guild.id + "**", true)
-		 .addField("**موقع السيرفر:globe_with_meridians: **", "**" + message.guild.region + "**", true)
-            .addField('**رومات السيرفر الكتابية :pencil:**', `**[ ${message.guild.channels.filter(m => m.type === 'text').size} ] Channel **`, true)
-            .addField("**رومات السيرفر الصوتية :microphone:**", ` ** [ ${message.guild.channels.filter(m => m.type === 'voice').size} ] Channel ** `, true)
-            .addField("**تاريخ انشاء السيرفر :date:**", ` ** [ ${days.toFixed(0)} ] ** Day `, true)
-            .addField("**رولات السيرفر:medal:**", `**[${message.guild.roles.size}]** Role `, true)
-       .addField(" الاعضاء:red_circle:", `
-**${message.guild.memberCount}**`)
-            .setThumbnail(message.guild.iconURL)
-            .setColor('RANDOM')
-        message.channel.sendEmbed(embed)
+  
+           const days = millis / 1000 / 60 / 60 / 24;	      
+         let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);	        
+         var embed = new Discord.RichEmbed()
+        .setTitle("__**معلومات عن السيرفر**__"	 
+        .addField("**اسم السيرفر**", message.guild.name, true)		
+        .addField("**اونر السيرفر**", message.guild.owner, true)	    		
+	    .addField("**عدد الاعضاء**", message.guild.memberCount, true)
+	    .addField("**ايدي السيرفر**", message.guild.id, true)
+	    .addField("**موقع السيرفر**", message.guild.region, true)	
+		.addField("**تاريخ انشاء السيرفر**", message.guild.createdAt, true)          
+        .addField("**تاريخ دخولك للسيرفر**", message.member.joinedAt, true)
+             .setThumbnail(message.guild.iconURL)	             
+             .setColor('RANDOM')	             
+         message.channel.sendEmbed(embed)
+  
 
-    }
+     }
 });
 	    
 	    
