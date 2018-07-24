@@ -67,8 +67,8 @@ client.on('ready', () => {
            const days = millis / 1000 / 60 / 60 / 24;	      
          let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);	        
          var embed = new Discord.RichEmbed()
-        .setTitle("__**معلومات عن السيرفر**__"	 
-        .addField("**اسم السيرفر**", message.guild.name)		
+	.setAuthor("__**معلومات عن السيرفر**__")
+	.addField("**اسم السيرفر**", message.guild.name)		
         .addField("**اونر السيرفر**", message.guild.owner)	    		
 	.addField("**ايدي السيرفر**", message.guild.id)
 	.addField("**عدد الاعضاء**", message.guild.memberCount)
@@ -84,6 +84,10 @@ client.on('ready', () => {
 });
 	    
 	    
+
+
+
+
 
 
 client.on('guildMemberRemove', (u) => {
