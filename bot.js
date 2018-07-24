@@ -74,7 +74,7 @@ client.on('ready', () => {
 	.addField("**عدد الاعضاء**", message.guild.memberCount)
 	.addField("**موقع السيرفر**", message.guild.region)	
 	.addField("**تاريخ انشاء السيرفر**", message.guild.createdAt)          
-        .addField("**تاريخ دخولك للسيرفر**", message.member.joinedAt);
+        .addField("**تاريخ دخولك للسيرفر**", message.member.joinedAt)
              .setThumbnail(message.guild.iconURL)	             
              .setColor('RANDOM')	             
          message.channel.sendEmbed(embed)
