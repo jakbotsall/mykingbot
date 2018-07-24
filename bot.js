@@ -68,13 +68,13 @@ client.on('ready', () => {
          let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);	        
          var embed = new Discord.RichEmbed()
         .setTitle("__**معلومات عن السيرفر**__"	 
-        .addField("**اسم السيرفر**", message.guild.name, true)		
-        .addField("**اونر السيرفر**", message.guild.owner, true)	    		
-        .addField("**عدد الاعضاء**", message.guild.memberCount, true)
-	.addField("**ايدي السيرفر**", message.guild.id, true)
-	.addField("**موقع السيرفر**", message.guild.region, true)	
-	.addField("**تاريخ انشاء السيرفر**", message.guild.createdAt, true)          
-        .addField("**تاريخ دخولك للسيرفر**", message.member.joinedAt, true);
+        .addField("**اسم السيرفر**", message.guild.name)		
+        .addField("**اونر السيرفر**", message.guild.owner)	    		
+	.addField("**ايدي السيرفر**", message.guild.id)
+	.addField("**عدد الاعضاء**", message.guild.memberCount)
+	.addField("**موقع السيرفر**", message.guild.region)	
+	.addField("**تاريخ انشاء السيرفر**", message.guild.createdAt)          
+        .addField("**تاريخ دخولك للسيرفر**", message.member.joinedAt);
              .setThumbnail(message.guild.iconURL)	             
              .setColor('RANDOM')	             
          message.channel.sendEmbed(embed)
