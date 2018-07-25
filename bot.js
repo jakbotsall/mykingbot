@@ -374,8 +374,11 @@ var id = new  Discord.RichEmbed()
 .setThumbnail(heg.avatarURL);
 console.log('[id] : بطلب من' + message.author.username)
 message.channel.send(id)
-}
-	});
+
+		   
+		    
+  }
+});
   
 
 	    
