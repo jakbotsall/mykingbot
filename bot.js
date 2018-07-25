@@ -373,11 +373,10 @@ var id = new  Discord.RichEmbed()
 .addField(`: الرتب`, `${message.guild.members.get(h.id).roles.map(r => `\`${r.name}\``).slice(1).join('\n') || 'لايوجد رتب'}`,true)                                                    
 .setThumbnail(heg.avatarURL);
 console.log('[id] : بطلب من' + message.author.username)
-message.channel.send(id)
-
-		   
+message.channel.send(id)		   
 		    
-  }
+}
+
 });
   
 
