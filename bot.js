@@ -591,13 +591,12 @@ if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');
  const embed = new Discord.RichEmbed()
 
     .setDescription(`**معلومات عن اعضاء السيرفر
-💚 متصل :   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
-❤️  ممنوع الازعاج :       ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
-💛 نايم :     ${message.guild.members.filter(m=>m.presence.status == 'idle').size}
-🖤 مخفي :   ${message.guild.members.filter(m=>m.presence.status == 'invisible').size}
-💠 الاعضاء :  ${message.guild.memberCount}
-👥 البشريين :   ${message.guild.memberCount - message.guild.members.filter(m => m.user.bot).size}
-💡 البوتات:   ${message.guild.members.filter(m => m.user.bot).size} **`)
+ متصل 💚:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
+  ممنوع الازعاج ❤️:       ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
+ نايم 💛:     ${message.guild.members.filter(m=>m.presence.status == 'idle').size}
+ الاعضاء 💠:  ${message.guild.memberCount}
+ البشريين 👥:   ${message.guild.memberCount - message.guild.members.filter(m => m.user.bot).size}
+ البوتات💡:   ${message.guild.members.filter(m => m.user.bot).size} **`)
          message.channel.send({embed});
 
     }
