@@ -22,6 +22,7 @@
     "ascii-data-table":"2.1.1",
     "array-sort": "1.0.0",
     "ffmpeg-binaries": "^3.2.2-3",
+    "fs-extra": "^6.0.1",
     "table": "4.0.3",
     "dateformat":"3.0.3",
     "jimp":"0.2.28",
