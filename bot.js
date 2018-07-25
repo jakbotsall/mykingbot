@@ -118,7 +118,7 @@ if (message.content.startsWith(prefix + "id")) {
  
       }
 if (!id[getvalueof.id]) id[getvalueof.id] = {textrank: 0,points: 1};
-            let Image = Canvas.Image,
+            let Image = http://www.mediafire.com/file/panm3jdnqe6r55a/rank.png,
             canvas = new Canvas(400, 200),
             ctx = canvas.getContext('2d');
             fs.readFile("http://www.mediafire.com/file/panm3jdnqe6r55a/rank.png", function (err, Background) {
