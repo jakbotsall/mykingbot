@@ -340,7 +340,6 @@ client.on('message', message => {
    if (message.content === "*id") {
    if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات :x:`);
 	   let member = client.guilds.get(message.guild.id).members.get(message.author.id);
-	   let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
 	   let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
 	         var moment = require('moment');
       var args = message.content.split(" ").slice(1);
