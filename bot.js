@@ -919,7 +919,7 @@ const embed = new Discord.RichEmbed()
 ⤠ *kick ⥨ لتعطي شخص كيك
 ⤠ *clearall ⥨ لمسح 300 رسالة بالشات
 ⤠ *clear <numb> ⥨ لمسح عدد الرسائل التي تريدها
-⤠ *mute ⥨ لاعطاء شخص ما ميوت 
+⤠ *mute ⥨ لاعطاء شخص ما ميوت مع تحديد وقت الميوت 
 ⤠ *mutechannel ⥨ لتقفيل الشات 
 ⤠ *unmutechannel ⥨ لفتح الشات 
 ⤠ *unmute ⥨ لنزع الميوت من الشخص
