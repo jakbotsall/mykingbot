@@ -275,7 +275,6 @@ client.on('message', message => {
   .addField("`: الايدي`", message.author.id, true)
   .addField("`: اخر رسالة`", message.author.lastMessage)
   .addField('`: الحالة`', message.author.presence.status)
-  .addField('`: عدد الدعوات`', message.author.member.inviteCount)
   .addField("`: تاريخ انشاء الحساب`", message.author.createdAt, true)
   
   .setTimestamp() 
