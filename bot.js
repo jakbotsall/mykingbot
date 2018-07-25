@@ -372,7 +372,7 @@ moment.locale('ar-TN');
   .addField('`: الحالة`', message.author.presence.status)
   .addField("`: تاريخ انشاء الحساب`", message.author.createdAt, true)
   .setFooter("-")
-  message.channel.sendEmbed(id);
+   message.channel.sendEmbed(id);
 })
 }
 
