@@ -87,8 +87,7 @@ moment.locale('ar-TN');
     .setAuthor(message.author.username, message.author.avatarURL)
 .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true)
 .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
-.addField(': عدد الدعوات', inviteCount,false)
-.addField(": التاق",heg.discriminator, true)
+.addField(': عدد الدعوات', inviteCount,true)
 .setFooter(" ￼ ")
     message.channel.sendEmbed(id);
 })
