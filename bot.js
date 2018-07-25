@@ -278,7 +278,7 @@ client.channels.get("470259562121920512").sendEmbed(embed)
 
 client.on('ready', function(){
     var ms = 10000 ;
-    var setGame = ['In 66 Server','*help | *invite','In 66 Server','*help | *invite','In 66 Server'];
+    var setGame = ['In ${client.guilds.size} Server','*help | *invite','In ${client.guilds.size} Server','*help | *invite','${client.users.size} Users'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -338,23 +338,44 @@ setInterval(function(){})
 
 client.on('message', message => {
    if (message.content === "*id") {
-   let embed = new Discord.RichEmbed()
-  .setThumbnail(message.author.avatarURL)
+   if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات :x:`);
+	   let member = client.guilds.get(message.guild.id).members.get(message.author.id);
+	   let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
+	   let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+	         var moment = require('moment');
+      var args = message.content.split(" ").slice(1);
+let user = message.mentions.users.first();
+var men = message.mentions.users.first();
+ var heg;
+ if(men) {
+     heg = men
+ } else {
+     heg = message.author
+ }
+var mentionned = message.mentions.members.first();
+  var h;
+ if(mentionned) {
+     h = mentionned
+ } else {
+     h = message.member
+ }
+moment.locale('ar-TN');
+      var id = new  Discord.RichEmbed()
+    .setColor("#0a0909")
+    .setAuthor(message.author.username, message.author.avatarURL)
   .setColor("RANDOM")
   .addField("`: الاسم`",`${message.author.username}`, true)
   .addField('`: التاق`',"#" +  message.author.discriminator, true)
   .addField("`: الايدي`", message.author.id, true)
+  .addField(': عدد الدعوات', inviteCount,false)
   .addField("`: اخر رسالة`", message.author.lastMessage)
   .addField('`: الحالة`', message.author.presence.status)
   .addField("`: تاريخ انشاء الحساب`", message.author.createdAt, true)
-  
-  .setTimestamp() 
-   
-   
-  message.channel.sendEmbed(embed);
-    }
-});
-
+  .setFooter("-")
+  message.channel.sendEmbed(id);
+})
+}
+     });
 
 
 client.on('message', message => {
