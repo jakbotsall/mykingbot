@@ -373,8 +373,9 @@ moment.locale('ar-TN');
   .addField("`: تاريخ انشاء الحساب`", message.author.createdAt, true)
   .setFooter("-")
    message.channel.sendEmbed(id);
-})
-}
+
+     }
+});
 
 
 
