@@ -375,7 +375,7 @@ moment.locale('ar-TN');
   message.channel.sendEmbed(id);
 })
 }
-     });
+
 
 
 client.on('message', message => {
