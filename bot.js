@@ -58,7 +58,7 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
-  if (message.content.startsWith(prefix + "idd")) {
+  if (message.content.startsWith(prefix + "id")) {
   if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات :x:`);
    message.guild.fetchInvites().then(invs => {
       let member = client.guilds.get(message.guild.id).members.get(message.author.id);
@@ -83,12 +83,13 @@ var mentionned = message.mentions.members.first();
  }
 moment.locale('ar-TN');
       var id = new  Discord.RichEmbed()
-    .setColor("#0a0909")
+    .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
 .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true)
 .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
 .addField(': عدد الدعوات', inviteCount,false)
-.setFooter("-")
+.addField(": التاق",heg.discriminator, true)
+.setFooter(" ￼ ")
     message.channel.sendEmbed(id);
 })
 }
@@ -365,55 +366,6 @@ setInterval(function(){})
     }
 });
   
-
-
-
-
-
-  client.on('message', message => {
-    if (message.content.startsWith(prefix + "id")) {
-	    
-var year = message.createdAt.getFullYear()
-var month = message.createdAt.getMonth()
-var day = message.createdAt.getDate()
-var args = message.content.split(" ").slice(1);
-let user = message.mentions.users.first();
-var men = message.mentions.users.first();
- var heg;
- if(men) {
-     heg = men
- } else {
-     heg = message.author
- }
-var mentionned = message.mentions.members.first();
-  var h;
- if(mentionned) {
-     h = mentionned
- } else {
-     h = message.member
- }
-        moment.locale('ar-TN');
-var id = new  Discord.RichEmbed()
-.setColor("RANDOM")
-.addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
-.addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true)
-  .addField("**عدد الايام منذ افتتاح حسابك:**", message.author.createdAt.getDate())
-    .addField("** تم افتتاح حسابك عام:**", message.createdAt.getFullYear())
-        .addField("** عدد الشهور منذ افتتاح حسابك:**", message.createdAt.getMonth())
-.addField(": النك نيم",`${h.nickname && h.nickname.name || 'لا يوجد'  }`, true) 
-.addField(": التاق",heg.discriminator, true)
-.addField(`: البلينق`,`${h.presence.game && h.presence.game.name || 'لا يلعب'}`,true) 
-.addField(': الحالة',`${h.presence.status}`,true)
-.addField(`: الرتب`, `${message.guild.members.get(h.id).roles.map(r => `\`${r.name}\``).slice(1).join('\n') || 'لايوجد رتب'}`,true)                                                    
-.setThumbnail(heg.avatarURL);
-console.log('[id] : بطلب من' + message.author.username)
-message.channel.send(id)		   
-		    
-}
-
-});
-  
-
 	    
 	    
 
@@ -646,7 +598,8 @@ client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
   return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
 :crown:اسم العضو  ${member}:crown:  
-:bust_in_silhouette: انت العضو رقم ${member.guild.memberCount}:bust_in_silhouette:  `) 
+:bust_in_silhouette: انت العضو رقم ${member.guild.memberCount}:bust_in_silhouette: 
+:checkered_flag: تاريخ انضمامك للسيرفر ${member.joinedAt.toLocaleString()} :checkered_flag:`) 
 }).catch(console.error)
 })
 
