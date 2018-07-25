@@ -332,12 +332,7 @@ setInterval(function(){})
 
   client.on('message', message => {
     if (message.content.startsWith(prefix + "id")) {
-                     if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات ❌`);
 	    
-	    message.guild.fetchInvites().then(invs => {
-let member = client.guilds.get(message.guild.id).members.get(message.author.id);
-let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
-let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
 var year = message.createdAt.getFullYear()
 var month = message.createdAt.getMonth()
 var day = message.createdAt.getDate()
@@ -369,7 +364,6 @@ var id = new  Discord.RichEmbed()
 .addField(": التاق",heg.discriminator, true)
 .addField(`: البلينق`,`${h.presence.game && h.presence.game.name || 'لا يلعب'}`,true) 
 .addField(': الحالة',`${h.presence.status}`,true)
-.addField(': الحالة',`${inviteCount}`)
 .addField(`: الرتب`, `${message.guild.members.get(h.id).roles.map(r => `\`${r.name}\``).slice(1).join('\n') || 'لايوجد رتب'}`,true)                                                    
 .setThumbnail(heg.avatarURL);
 console.log('[id] : بطلب من' + message.author.username)
