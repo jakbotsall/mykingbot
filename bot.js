@@ -199,9 +199,9 @@ client.on('message', function(msg) {
       .addField('`الرومات الكتابية`',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
       .addField('`رومات الصوت`',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
       .addField('`الأونـر`',`**${msg.guild.owner}**`,true)
-      .addField('`ايدي السيرفر`',`**${msg.guild.id}**`,true)
+      .addField('`ايدي السيرفر`',`[** __${msg.guild.id}__ **]`,true)
       .addField('`الرتب`',`[** __${msg.guild.roles.size}__ **]`,true)
-      .addField('`تاريخ انشاء السيرفر`',msg.guild.createdAt.toLocaleString())
+      .addField('`تاريخ انشاء السيرفر`',`[** __${msg.guild.createdAt.toLocaleString()}__ **]`, true)
       msg.channel.send({embed:embed});
     }
   });    
