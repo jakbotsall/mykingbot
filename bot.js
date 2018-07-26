@@ -91,50 +91,15 @@ moment.locale('ar-TN');
     .setAuthor(message.author.username, message.author.avatarURL)
 .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true)
 .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
-.addField(': عدد الدعوات', inviteCount,true)
-.setFooter(" ￼ ")
+.addField('Discrim', message.author.discriminator, true)
+.addField('ID', message.author.id)
+.addField('Presence', message.author.presence)
+.addField('Presence Game', message.author.presence.activity.name)
+.setFooter("Requested By', message.author.tag")
     message.channel.sendEmbed(id);
 })
 }
      });
-
-
-
-
-
-client.on('message', message => { //Message Event | Listener
-
-    if (message.content.startsWith(prefix + 'Userinfo')) {
-
-        const UserInfo = new Discord.MessageEmbed()
-
-            //All Fields are Optional Pick Any some
-
-            .setAuthor(message.author.username, message.author.avatarURL()) //Heading With Username & Their Avatar 
-            .setTitle('UserInfo')
-            .setURL('www.google.com') //Any Vaild Link
-            .setColor('RANDOM') //You Can Use HexColour Ex:- #000000
-            .setImage(message.author.avatarURL()) //Add Any Image URl || Image
-            .setThumbnail(message.author.avatarURL()) //Add Any Image URl || ThumbNail
-
-            //All Feilds Are Just Examples pick Some & add as you like
-
-            .addField('Bot', message.author.bot, true) //Returns True If Message Author = Bot || False If Message Author not Bot.
-            .addField('Created At', message.author.createdAt, false) //The time the user was created || .createdTimestamp - The timestamp the user was created at
-            .addField('Discrim', message.author.discriminator, true) //A discriminator/tag based on username for the user Ex:- 0001
-            .addField('ID', message.author.id) //The ID of the User/author
-            .addField('Last Message', message.author.lastMessage) //The Message object of the last message sent by the user, if one was sent
-            .addField('Presence', message.author.presence) //The presence of this user
-            .addField('Presence Game', message.author.presence.activity.name) //The presence Game of this user
-
-            .setFooter('Requested By', message.author.tag) //Change To Anything As You Wish
-            .setTimestamp() //The timestamp of this embed
-
-        message.channel.send(UserInfo);
-    }
-});
-
-
 
 
 
