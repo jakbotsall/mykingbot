@@ -101,6 +101,47 @@ moment.locale('ar-TN');
 
 
 
+client.on('message', message => {
+   if (message.content === "*id") {
+   if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات :x:`);
+      var moment = require('moment');
+      var args = message.content.split(" ").slice(1);
+let user = message.mentions.users.first();
+var men = message.mentions.users.first();
+ var heg;
+ if(men) {
+     heg = men
+ } else {
+     heg = message.author
+ }
+var mentionned = message.mentions.members.first();
+  var h;
+ if(mentionned) {
+     h = mentionned
+ } else {
+     h = message.member
+ }
+moment.locale('ar-TN');
+      var id = new  Discord.RichEmbed()
+  .setColor("RANDOM")
+  .setThumbnail(message.author.avatarURL)
+  .addField("Create At :", `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\``, true)
+  .addField("Joined At :", `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)    
+  .addField("Name :",`${message.author.username}`, true)
+  .addField("Nickname:", `${user.nickname !== null ? `${user.nickname}` : 'لا يوجد'}`, true)
+  .addField('Discrim :',"#" +  message.author.discriminator, true)
+  .addField("Game:", `${user.presence.game ? user.presence.game.name : 'لا يلعب'}`, true)
+  .addField("ID :", `${message.author.id}`, true)
+  .addField("Roles:", user.roles.map(roles => `${roles.name}`).join(', '), true)
+
+     
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
+
+
 
 client.on('message', async message =>{
 const ms = require("ms");
@@ -168,9 +209,6 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return mess
   }
  
 });
-
-
-
 
 
 
@@ -331,7 +369,7 @@ client.channels.get("470259562121920512").sendEmbed(embed)
 
 client.on('ready', function(){
     var ms = 10000 ;
-    var setGame = ['In 70 Server','*help | *invite','In 70 Server','*help | *invite','In 70 Server'];
+    var setGame = ['In 71 Server','*help | *invite','In 71 Server','*help | *invite','In 71 Server'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -966,6 +1004,8 @@ const embed = new Discord.RichEmbed()
 	  
 اوامـــر الادمـــنـــيــــة
 
+⤠ *vb ⥨ لمنع الشخص اللي تمنشنه من دخول الرومات الصوتية
+⤠ *unvb ⥨ عشان تفك البان عنه من الرومات الصوتية
 ⤠ *ban ⥨ لتبنيد شخص ما من السيرفر
 ⤠ *kick ⥨ لتعطي شخص كيك
 ⤠ *clearall ⥨ لمسح 300 رسالة بالشات
@@ -1003,6 +1043,80 @@ message.author.sendEmbed(embed)
 
 }
 }); 
+
+
+
+
+
+client.on('message', eyad => {
+  if (eyad.content.startsWith('*vb')) {
+if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
+let men = eyad.mentions.users.first()
+let mas = eyad.author
+if(!men) return eyad.channel.send('`منشن شخص `');
+eyad.guild.channels.forEach(c => {
+c.overwritePermissions(men.id, {
+          CONNECT: false
+})
+    })
+const embed = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setDescription(`**
+ <@${men.id}>
+لقد تم منعك من دخول الرومات الصوتيه 
+بواسطة : <@${eyad.author.id}> **`)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
+          
+client.users.get(men.id).sendEmbed(embed)
+const Embed11 = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(eyad.guild.name, eyad.guild.iconURL)
+.setDescription(`          <@${men.id}>
+لقد تم منعك من دخول الرومات الصوتيه 
+بواسطة : <@${eyad.author.id}> `)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
+eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(10000)})
+    }
+})
+
+
+
+
+
+client.on('message', eyad => {
+  if (eyad.content.startsWith('*unvb')) {
+if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
+ let men = eyad.mentions.users.first()
+ let mas = eyad.author
+ if(!men) return eyad.channel.send('`منشن شخص `');
+ eyad.guild.channels.forEach(c => {
+ c.overwritePermissions(men.id, {
+         CONNECT: true
+ })
+    })
+const embed = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setDescription(`**
+ <@${men.id}>
+ الان يمكنك الدخول الي الرومات الصوتيه :)
+بواسطة : <@${eyad.author.id}> **`)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
+          
+client.users.get(men.id).sendEmbed(embed)
+const Embed11 = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(eyad.guild.name, eyad.guild.iconURL)
+.setDescription(`          <@${men.id}>
+الان يمكنك الدخول الي الرومات الصوتيه
+بواسطة : <@${eyad.author.id}>
+`)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
+eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(15000)})
+    }
+})
+
+
+
 
 
 
@@ -1534,19 +1648,16 @@ if (message.member.voiceChannel == null) return message.channel.send(`**الرج
 
 اوامـــر الالـــعـــاب
 
-⤠ *يعطيك بعض الاذكار ⥨ اذكار    
-⤠ *لعبة مريم ⥨ مريم    
+⤠ *عشان تعطي الشخص اللي تمنشنه لكمة ⥨ لكمة         
 ⤠ *لعبة هل تعلم ⥨ هل تعلم         
-⤠ *لعبة خواطر ⥨ خواطر
 ⤠ *rps ⥨ لعبة حجر ورقة مقص  
 ⤠ *roll <numb> ⥨ قرعة  
 ⤠ *emoji ⥨ لكتابة كلامك بايموجي                  
 ⤠ *لعبة اسئلني ⥨ اسئلني                    
 ⤠ *لعبة كت تويت ⥨ كت تويت
-⤠ *لعبة لو خيروك ⥨ لو خيروك
-⤠ *لعبة الصراحة ⥨ صراحة  
-⤠ *يعطيك عقاب للخاسر ⥨ عقاب   
+⤠ *لعبة لو خيروك ⥨ لو خيروك 
 ⤠ *معلومات عن الاسلام ⥨ دين    
+⤠ *يعطيك بعض الاذكار ⥨ اذكار    
 
 `)
 
@@ -1557,6 +1668,43 @@ message.author.sendEmbed(embed)
 
 }
 });
+
+
+
+
+client.on('message',  (message) => {
+        if(message.content.startsWith('*لكمة')) {
+  let user = message.mentions.users.first();
+  if (!user) {
+    /**
+     * The command was ran with invalid parameters.
+     * @fires commandUsage
+     */
+    return message.emit('commandUsage', message, this.help);
+  }
+
+  let punches = [
+    'https://i.giphy.com/media/iWEIxgPiAq58c/giphy.gif',
+    'https://i.giphy.com/media/DViGV8rfVjw6Q/giphy.gif',
+    'https://i.giphy.com/media/GoN89WuFFqb2U/giphy.gif',
+    'https://i.giphy.com/media/xT0BKiwgIPGShJNi0g/giphy.gif',
+    'https://i.giphy.com/media/Lx8lyPHGfdNjq/giphy.gif'
+  ];
+
+  message.channel.send({
+    embed: {
+      description: `${message.author.username} عطاك بوكس ${user.username}! :punch:`,
+      image: {
+        url: punches[Math.floor(Math.random() * punches.length)]
+      }
+    }
+  }).catch(e => {
+    client.log.error(e);
+  })
+        }  
+});
+
+
 
 
 
@@ -1650,35 +1798,6 @@ message.channel.sendEmbed(cat);
 
 
 
-
-const secreT = [
-  "**الحياة بكل ما فيها تقف دائمًا على حد الوسطية بين اتزان المعنى وضده من حب وكره وحق وباطل وعدل وظلم**.",
-  "**كى تعيش عليك ان تتقن فن التجاهل باحتراف**.",
-  "**لا تحزن على من اشعرك بان طيبتك غباء امام وقاحته**.",
-  "**هناك من يحلم بالنجاح وهناك من يستيقظ باكرا لتحقيقه**.",
-  "**ان تعالج ألمك بنفسك تلك هى القوة**.", 
-  "**الجميع يسمع ما تقول والاصدقاء ينصتون لما تقول وافضل الاصدقاء ينصتون لما اخفاه سكوتك**.", 
-  "**انتهى زمن الفروسية ، لم تنقرض الخيول بل انقرض الفرسان**.", 
-  "**ان تكون اخرسا عاقلا خير من ان تكون نطوقا جهولا**.", 
-  "**المناقشات العقيمة لا تنجب افكارا**.", 
-  "**نحن نكتب ما لا نستطيع ان نقول وما نريد ان يكون**.", 
-  "**نحن نكتب ما لا نستطيع ان نقول وما نريد ان يكون**.", 
-]
-
-
- client.on('message', message => {
-   if (message.content.startsWith("*خواطر")) {
-                if(!message.channel.guild) return message.reply('** This command only for servers**');
-  var embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
-
-   .setThumbnail(message.author.avatarURL) 
- .addField('لعبه خواطر' ,
-  `${secreT[Math.floor(Math.random() * secreT.length)]}`)
-  message.channel.sendEmbed(embed);
-  console.log('[id] Send By: ' + message.author.username)
-    }
-});
 
 
 
@@ -1919,156 +2038,10 @@ console.log('[id] Send By: ' + message.author.username)
 
 
 
-const Sra7a = [
-            'صراحه  |  صوتك حلوة؟',
-            'صراحه  |  التقيت الناس مع وجوهين؟',
-            'صراحه  |  شيء وكنت تحقق اللسان؟',
-            'صراحه  |  أنا ��خص ضعيف عندما؟',
-            'صراحه  |  هل ترغب في إظهار حبك ومرفق لشخص أو رؤية هذا الضعف؟',
-            'صراحه  |  يدل على أن الكذب مرات تكون ضرورية شي؟',
-            'صراحه  |  أشعر بالوحدة على الرغم من أنني تحيط بك كثيرا؟',
-            'صراحه  |  كيفية الكشف عن من يكمن عليك؟',
-            'صراحه  |  إذا حاول شخص ما أن يكرهه أن يقترب منك ويهتم بك تعطيه فرصة؟',
-            'صراحه  |  أشجع شيء حلو في حياتك؟',
-            'صراحه  |  طريقة جيدة يقنع حتى لو كانت الفكرة خاطئة" توافق؟',
-            'صراحه  |  كيف تتصرف مع من يسيئون فهمك ويأخذ على ذهنه ثم ينتظر أن يرفض؟',
-            'صراحه  |  التغيير العادي عندما يكون الشخص الذي يحبه؟',
-            'صراحه  |  المواقف الصعبة تضعف لك ولا ترفع؟',
-            'صراحه  |  نظرة و يفسد الصداقة؟',
-            'صراحه  |  ‏‏إذا أحد قالك كلام سيء بالغالب وش تكون ردة فعلك؟',
-            'صراحه  |  شخص معك بالحلوه والمُره؟',
-            'صراحه  |  ‏هل تحب إظهار حبك وتعلقك بالشخص ��م ترى ذلك ضعف؟',
-            'صراحه  |  تأخذ بكلام اللي ينصحك ولا تسوي اللي تبي؟',
-            'صراحه  |  وش تتمنى الناس تعرف عليك؟',
-            'صراحه  |  ابيع المجرة عشان؟',
-            'صراحه  |  أحيانا احس ان الناس ، كمل؟',
-            'صراحه  |  مع مين ودك تنام اليوم؟',
-            'صراحه  |  صدفة العمر الحلوة هي اني؟',
-            'صراحه  |  الكُره العظيم دايم يجي بعد حُب قوي " تتفق؟',
-            'صراحه  |  صفة تحبها في نفسك؟',
-            'صراحه  |  ‏الفقر فقر العقول ليس الجيوب " ، تتفق؟',
-            'صراحه  |  تصلي صلواتك الخمس كلها؟',
-            'صراحه  |  ‏تجامل أحد على راحتك؟',
-            'صراحه  |  اشجع شيء سويتة بحياتك؟',
-            'صراحه  |  وش ناوي تسوي اليوم؟',
-            'صراحه  |  وش شعورك لما تشوف المطر؟',
-            'صراحه  |  غيرتك هاديه ولا تسوي مشاكل؟',
-            'صراحه  |  ما اكثر شي ندمن عليه؟',
-            'صراحه  |  اي الدول تتمنى ان تزورها؟',
-            'صراحه  |  متى اخر مره بكيت؟',
-            'صراحه  |  تقيم حظك ؟ من عشره؟',
-            'صراحه  |  هل تعتقد ان حظك سيئ؟',
-            'صراحه  |  شـخــص تتمنــي الإنتقــام منـــه؟',
-            'صراحه  |  كلمة تود سماعها كل يوم؟',
-            'صراحه  |  **هل تُتقن عملك أم تشعر بالممل؟',
-            'صراحه  |  هل قمت بانتحال أحد الشخصيات لتكذب على من حولك؟',
-            'صراحه  |  متى آخر مرة قمت بعمل مُشكلة كبيرة وتسببت في خسائر؟',
-            'صراحه  |  ما هو اسوأ خبر سمعته بحياتك؟',
-            '‏صراحه | هل جرحت شخص تحبه من قبل ؟',
-            'صراحه  |  ما هي العادة التي تُحب أن تبتعد عنها؟',
-            '‏صراحه | هل تحب عائلتك ام تكرههم؟',
-            '‏صراحه  |  من هو الشخص الذي يأتي في قلبك بعد الله – سبحانه وتعالى- ورسوله الكريم – صلى الله عليه وسلم؟',
-            '‏صراحه  |  هل خجلت من نفسك من قبل؟',
-            '‏صراحه  |  ما هو ا الحلم  الذي لم تستطيع ان تحققه؟',
-            '‏صراحه  |  ما هو الشخص الذي تحلم به كل ليلة؟',
-            '‏صراحه  |  هل تعرضت إلى موقف مُ��رج جعلك تكره صاحبهُ؟',
-             '‏صراحه  |  هل قمت بالبكاء أمام من تُحب؟',
-            '‏صراحه  |  ماذا تختار حبيبك أم صديقك؟',
-            '‏صراحه  | هل حياتك سعيدة أم حزينة؟',
-            'صراحه  |  ما هي أجمل سنة عشتها بحياتك؟',
-            '‏صراحه  |  ما هو عمرك الحقيقي؟',
-            '‏صراحه  |  ما اكثر شي ندمن عليه؟',
-            'صراحه  |  ما هي أمنياتك المُستقبلية؟‏',
-       ]
-          client.on('message', message => {
-			  	var prefix = "*"
-        if (message.content.startsWith(prefix + 'صراحة')) {
-            if(!message.channel.guild) return message.reply('** This command only for servers **');
-         var client= new Discord.RichEmbed()
-         .setTitle("Legend Brmoon.")
-         .setColor('RANDOM')
-         .setDescription(`${Sra7a[Math.floor(Math.random() * Sra7a.length)]}`)
-         .setImage("https://cdn.discordapp.com/attachments/371269161470525444/384103927060234242/125.png")
-                         .setTimestamp()
-       
-          message.channel.sendEmbed(client);
-          message.react("??")
-        }
-       });
 
 
 
 
-
-       const Za7f = [
-           "**صورة وجهك او رجلك او خشمك او يدك**.",
-           "**اصدر اي صوت يطلبه منك الاعبين**.",
-           "**سكر خ��مك و قول كلمة من اختيار الاعبين الي معك**.",
-           "**روح الى اي قروب عندك في الواتس اب و اكتب اي شيء يطلبه منك الاعبين  الحد الاقصى 3 رسائل**.",
-           "**قول نكتة اذا و لازم احد الاعبين يضحك اذا محد ضحك يعطونك ميوت الى ان يجي دورك مرة ثانية**.",
-           "**سمعنا صوتك و غن اي اغنية من اختيار الاعبين الي معك**.",
-           "**ذي المرة لك لا تعيدها**.",
-           "**ارمي جوالك على الارض بقوة و اذا انكسر صور الجوال و ارسله في الشات العام**.",
-           "**صور اي شيء يطلبه منك الاعبين**.",
-           "**اتصل على ابوك و قول له انك رحت مع بنت و احين هي حامل....**.",
-           "**سكر خشمك و قول كلمة من اختيار الاعبين الي معك**.",
-           "**سو مشهد تمثيلي عن مصرية بتولد**.",
-           "**اعطي اي احد جنبك كف اذا مافيه احد جنبك اعطي نفسك و نبي نسمع صوت الكف**.",
-           "**ذي المرة لك لا تعيدها**.",
-           "**ارمي جوالك على الارض بقوة و اذا انكسر صور الجوال و ارسله في الشات العام**.",
-           "**روح عند اي احد بالخاص و قول له انك تحبه و الخ**.",
-           "**اكتب في الشات اي شيء يطلبه منك الاعبين في الخاص**.",
-           "**قول نكتة اذا و لازم احد الاعبين يضحك اذا محد ضحك يعطونك ميوت الى ان يجي دورك مرة ثانية**.",
-           "**سامحتك خلاص مافيه عقاب لك :slight_smile:**.",
-           "**اتصل على احد من اخوياك  خوياتك , و اطلب منهم مبلغ على اساس انك صدمت بسيارتك**.",
-           "**غير اسمك الى اسم من اختيار الاعبين الي معك**.",
-           "**اتصل على امك و قول لها انك تحبها :heart:**.",
-           "**لا يوجد سؤال لك سامحتك :slight_smile:**.",
-           "**قل لواحد ماتعرفه عطني كف**.",
-           "**منشن الجميع وقل انا اكرهكم**.",
-           "**اتصل لاخوك و قول له انك سويت حادث و الخ....**.",
-           "**روح المطبخ و اكسر صحن او كوب**.",
-           "**اعطي اي احد جنبك كف اذا مافيه احد جنبك اعطي نفسك و نبي نسمع صوت الكف**.",
-           "**قول لاي بنت موجود في الروم كلمة حلوه**.",
-           "**تكلم باللغة الانجليزية الين يجي دورك م��ة ثانية لازم تتكلم اذا ما تكلمت تنفذ عقاب ثاني**.",
-           "**لا تتكلم ولا كلمة الين يجي دورك مرة ثانية و اذا تكلمت يجيك باند لمدة يوم كامل من السيرفر**.",
-           "**قول قصيدة **.",
-           "**تكلم باللهجة السودانية الين يجي دورك مرة ثانية**.",
-           "**اتصل على احد من اخوياك  خوياتك , و اطلب منهم مبلغ على اساس انك صدمت بسيارتك**.",
-           "**اول واحد تشوفه عطه كف**.",
-           "**سو مشهد تمثيلي عن اي شيء يطلبه منك الاعبين**.",
-           "**سامحتك خلاص مافيه عقاب لك :slight_smile:**.",
-           "**اتصل على ابوك و قول له انك رحت مع بنت و احين هي حامل....**.",
-           "**روح اكل ملح + ليمون اذا مافيه اكل اي شيء من اختيار الي معك**.",
-           "**تاخذ عقابين**.",
-           "**قول اسم امك افتخر بأسم امك**.",
-           "**ارمي اي شيء قدامك على اي احد موجود او على نفسك**.",
-           "**اذا انت ولد اكسر اغلى او احسن عطور عندك اذا انتي بنت اكسري الروج حقك او الميك اب حقك**.",
-           "**اذهب الى واحد ماتعرفه وقل له انا كيوت وابي بوسه**.",
-           "**تتصل على الوالده  و تقول لها خطفت شخص**.",
-           "** تتصل على الوالده  و تقول لها تزوجت با سر**.",
-           "**����تصل على الوالده  و تقول لها  احب وحده**.",
-             "**تتصل على شرطي تقول له عندكم مطافي**.",
-             "**خلاص سامحتك**.",
-             "** تصيح في الشارع انا  مجنوون**.",
-             "** تروح عند شخص تقول له احبك**.",
-         
-       ]
-
-
-    client.on('message', message => {
-			var prefix = "*"
-      if (message.content.startsWith(prefix + "عقاب")) {
-                   if(!message.channel.guild) return message.reply('** This command only for servers**');
-     var embed = new Discord.RichEmbed()
-     .setColor('RANDOM')
-      .setThumbnail(message.author.avatarURL) 
-    .addField('Legend Brmoon.' ,
-     `${Za7f[Math.floor(Math.random() * Za7f.length)]}`)
-     message.channel.sendEmbed(embed);
-     console.log('[38ab] Send By: ' + message.author.username)
-       }
-   });
 
 
 const den = [
@@ -2123,68 +2096,6 @@ const den = [
               message.react("??")
           }
       });
-
-
-const zead = [
-     '*** انا اسمي مريم ***',
-     '*** مرحباَ ماهو اسمك ؟ ***',
-     `*** اهلا بك ! انا تائهه في هذا المكان  ***`,
-     '*** هل تود مساعدتي ؟ ***',
-     '*** لماذا هل انت قاسي القلب ؟ ***',
-     '*** انني اشفق عليك عليك يجب ان تطهر روحك وتحب الخير للجميع ***',
-     '*** ابتعد عني قليل انني متعبة ***',
-     '*** هل انت نادم على ماقلت ؟ ***',
-     '*** ابتعد عني قليل انني متعبة ***',
-     '*** هل انت نادم على ماقلت ؟ ***',
-     '*** هل تود مساعدتي ؟ ***',
-     '*** واو اشكرك انك شخصاَ رائع ! ***',
-     '*** ابحث معي عن منزلي لقد كان قريباَ من هنا ***',
-     '*** ولاكن عندما حل الليل لم اعد ارى اي شيء ***',
-     '*** مذا تظن اين يوجد ؟ يمين او يسار ***',
-     '*** هيا اذاَ ***',
-     '*** اود ان اسئلك سؤال ونحن في الطريق ***',
-     '*** هل تراني فتاة لطيفة ام مخيفة ***',
-     '*** اشكرك !  ***',
-     '*** لقد وصلنا الى المنزل شكراَ جزيلَ انتطرني ثواني وسوف اعود ***',
-     '*** هل انت جاهز ؟ ***',
-     '*** لقد اخبرت والدي عنك وهم متحمسين لرؤيتك ***',
-     '*** هل تود ان تراهم الان ***',
-  '*** انا لست الحوت الازرق كما يدعون ***',
-     '*** انا لست كاذبة صدقني***',
-     '*** لماذا ارى في عينيك الخوف ؟ ***',
-     '*** انا مجرد فتاة لطيفة تحب اللعب مع الجميع ***',
-     '*** اعرف كل شيء يحدث اسمع ذالك بالراديو ***',
-     '*** سمعت ان البشر يقتلون من اجل المال فقط ***',
-     '*** لماذا لم تدخل الغرفة ؟ ***',
-     '*** ههههههههههههههههههه انت الان مسجون في هذه الغرفة ***',
-     '*** لن تخرج حتى اعود لك بعد قليل ***',
-     '*** المفتاح معك ! اكتب .مريم  ***',
-     '*** مفتاح احمر , هل حصلت عليه ؟ ***',
-     '*** ان لم تحصل عليه , اكتب .مريم مرة اخرى ***',
-     '*** مفتاح اسود . هل حصلت عليه ؟ ***',
-     '*** اين تريد ان تختبئ بسرعة قبل ان تعود ***',
-     '*** لقد عادت من جديد الى المنزل ***',
-     '*** لا تصدر اي صوت ! ***',
-     '*** مريم : لقد عدت ***',
-     '*** مريم : يا ايها المخادع اين انت ***',
-     '*** مريم : اعلم انك هنا في المنزل ***',
-     '*** مريم : ماذا تريد ان تسمع ***',
-     '*** مريم : اضغط على الرابط اهداء مني لك | https://www.youtube.com/channel/UCB_ayKmfw0XftLECHbdE96A?view_as=subscriber ***',
-     '*** احد ما خرج من المنزل ***',
-     '*** انتظر الجزء الثاني عندما يوصل البوت 100 سيرفر , ساعدنا في نشر البوت وادخل هذا السيرفر  ***'
-  ]
-   client.on('message', message => {
-	   	var prefix = "*"
-   if (message.content.startsWith(prefix + 'مريم')) {
-    var mariam= new Discord.RichEmbed()
-    .setTitle("Legend Brmoon.")
-    .setColor('RANDOM')
-    .setDescription(`${zead[Math.floor(Math.random() * zead.length)]}`)
-    .setImage("https://www.npa-ar.com/wp-content/uploads/2017/08/%D9%84%D8%B9%D8%A8%D8%A9-%D9%85%D8%B1%D9%8A%D9%85-300x200.jpg")
-     message.channel.sendEmbed(mariam);
-     message.react("??")
-    }
-  });
 
 
 const codes = {
