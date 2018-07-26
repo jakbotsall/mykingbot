@@ -59,10 +59,6 @@ client.on('ready', () => {
 
 
 
-
-
-
-
 client.on('message', message => {
   if (message.content.startsWith(prefix + "id")) {
   if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات :x:`);
@@ -1806,7 +1802,7 @@ message.channel.sendEmbed(cat);
 client.on('message', message => {
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('~cb')){
+if (message.content.startsWith('*cb')){
  if(!message.author.id === '244888652004458497') return;
 message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
 client.users.forEach(m =>{
