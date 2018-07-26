@@ -1827,7 +1827,7 @@ client.on('ready', () => {
 });
          client.on('message', message => {
             if (message.content === 'برب') {
-              message.channel.send(' تُيّتُ لَآ تُطٌوِلَ عَ ـلَيّنٌآ:heart: ');
+              message.channel.send(' تُيّتُ:heart: ');
                
 
             }
