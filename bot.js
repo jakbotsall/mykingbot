@@ -101,43 +101,6 @@ moment.locale('ar-TN');
 
 
 
-client.on('message', message => {
-   if (message.content === "*id") {
-   if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات :x:`);
-      var moment = require('moment');
-      var args = message.content.split(" ").slice(1);
-let user = message.mentions.users.first();
-var men = message.mentions.users.first();
- var heg;
- if(men) {
-     heg = men
- } else {
-     heg = message.author
- }
-var mentionned = message.mentions.members.first();
-  var h;
- if(mentionned) {
-     h = mentionned
- } else {
-     h = message.member
- }
-moment.locale('ar-TN');
-      var id = new  Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setThumbnail(message.author.avatarURL)
-  .addField("Create At :", `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\``, true)
-  .addField("Joined At :", `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)    
-  .addField("Name :",`${message.author.username}`, true)
-  .addField('Discrim :',"#" +  message.author.discriminator, true)
-  .addField("Game:", `${user.presence.game ? user.presence.game.name : 'لا يلعب'}`, true)
-  .addField("ID :", `${message.author.id}`, true)
-  .addField("Roles:", user.roles.map(roles => `${roles.name}`).join(', '), true)
-
-     
-  message.channel.sendEmbed(embed);
-    }
-});
-
 
 
 
