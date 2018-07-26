@@ -291,7 +291,7 @@ client.channels.get("470259562121920512").sendEmbed(embed)
 
 client.on('ready', function(){
     var ms = 10000 ;
-    var setGame = ['In 72 Server','*help | *invite','In 72 Server','*help | *invite','In 72 Server'];
+    var setGame = ['In 73 Server','*help | *invite','In 73 Server','*help | *invite','In 73 Server'];
     var i = -1;
     var j = 0;
     setInterval(function (){
