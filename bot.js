@@ -59,7 +59,49 @@ client.on('ready', () => {
 
 
 
+   client.on('message', message => {
+    const prefix = '*'
+var args = message.content.split(" ").slice(1);    
+if(message.content.startsWith(prefix + 'id')) {
+var year = message.author.createdAt.getFullYear()
+var month = message.author.createdAt.getMonth()
+var day = message.author.createdAt.getDate()
+var men = message.mentions.users.first();  
+let args = message.content.split(' ').slice(1).join(' ');
+if (args == '') {
+var z = message.author;
+}else {
+var z = message.mentions.users.first();
+}
 
+let d = z.createdAt;          
+let n = d.toLocaleString();   
+let x;                       
+let y;                        
+
+if (z.presence.game !== null) {
+y = `${z.presence.game.name}`;
+} else {
+y = "Not Playing....";
+}
+let embed = new Discord.RichEmbed()
+.setColor("#502faf")
+.addField('Name :',`**<@` + `${z.id}` + `>**`, true)
+.addField('ID :', "**"+ `${z.id}` +"**",true)
+.addField('Playing :','**'+y+'**' , true)
+.addField('Discrim :',"**#" +  `${z.discriminator}**`,true)
+.addField('**Created At**', message.author.createdAt.toLocaleString())
+.addField("**Joined At**", message.member.joinedAt.toLocaleString())    
+
+.setThumbnail(`${z.avatarURL}`)
+.setFooter(message.author.username, message.author.avatarURL)
+
+message.channel.send({embed});
+    if (!message) return message.reply('**ضع المينشان بشكل صحيح  ❌ **').catch(console.error);
+
+}
+
+});
 
 
 
