@@ -13,7 +13,6 @@ const giphy = require('giphy-api')();
 const googl = require('goo.gl'); 
 const translate = require('google-translate-api');   
 const fs = require("fs"); 
-var id = JSON.parse(fs.readFileSync("./id/mozo.json", "utf8"));
 var data = JSON.parse(fs.readFileSync('data.json','utf8'))
 const moment = require("moment");
 const UserBlocked = new Set(); 
@@ -2243,6 +2242,23 @@ message.author.sendEmbed(embed)
 });
 
 
+
+function commandIs(str, msg){
+    return msg.content.toLowerCase().startsWith('*' + str);
+}
+
+function pluck(array) {
+    return array.map(function(item) { return item['name']; });
+}
+
+function hasRole(mem, role) {
+    if(pluck(mem.roles).includes(role)){
+        return true;
+    } else {
+        return false;
+    }
+
+  }
 
 
 
