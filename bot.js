@@ -128,7 +128,6 @@ moment.locale('ar-TN');
   .addField("Create At :", `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\``, true)
   .addField("Joined At :", `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)    
   .addField("Name :",`${message.author.username}`, true)
-  .addField("Nickname:", `${user.nickname !== null ? `${user.nickname}` : 'لا يوجد'}`, true)
   .addField('Discrim :',"#" +  message.author.discriminator, true)
   .addField("Game:", `${user.presence.game ? user.presence.game.name : 'لا يلعب'}`, true)
   .addField("ID :", `${message.author.id}`, true)
