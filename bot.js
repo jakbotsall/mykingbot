@@ -810,7 +810,7 @@ if (message.content.startsWith(prefix + 'trans')) {
 client.on('message', message => {
                 if(message.content === prefix + "invite") {
                     let embed = new Discord.RichEmbed ()
-                    embed.setTitle("**:point_right: اضغط هنا**")
+                    embed.setTitle("**:point_right: Click Here**")
                   .setFooter(`King Bot `,'https://cdn.discordapp.com/attachments/457004554869932033/471106003249659914/image.jpg')
                   .setURL("https://goo.gl/ADmgeW");
                    message.channel.sendEmbed(embed);
