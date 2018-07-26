@@ -94,7 +94,7 @@ let embed = new Discord.RichEmbed()
 .addField("**Joined At**", message.member.joinedAt.toLocaleString())    
 
 .setThumbnail(`${z.avatarURL}`)
-.setFooter(message.author.username, message.author.avatarURL)
+.setFooter('Requested By',message.author.username, message.author.avatarURL)
 
 message.channel.send({embed});
     if (!message) return message.reply('**ضع المينشان بشكل صحيح  ❌ **').catch(console.error);
