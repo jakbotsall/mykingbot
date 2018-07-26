@@ -1648,10 +1648,10 @@ client.on('message',  (message) => {
   }
 
   let punches = [
-    'https://i.giphy.com/media/iWEIxgPiAq58c/giphy.gif',
+    'https://memeguy.com/photos/images/man-getting-punched-in-the-face--145991.gif',
     'https://i.giphy.com/media/DViGV8rfVjw6Q/giphy.gif',
     'https://i.giphy.com/media/GoN89WuFFqb2U/giphy.gif',
-    'https://i.giphy.com/media/xT0BKiwgIPGShJNi0g/giphy.gif',
+    'https://media.giphy.com/media/Fs8pXeLXuKUGA/giphy.gif',
     'https://i.giphy.com/media/Lx8lyPHGfdNjq/giphy.gif'
   ];
 
