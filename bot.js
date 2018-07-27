@@ -193,7 +193,7 @@ client.on('message', function(msg) {
       .addField('**عدد البشريين**',`[** __${msg.guild.memberCount - msg.guild.members.filter(m => m.user.bot).size}__ **]`,true)
       .addField('**عدد البوتات**',`[** __${msg.guild.members.filter(m => m.user.bot).size}__ **]`,true)
       .addField('**عدد الاعضاء الاونلاين**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
-      .addField('**الرومات الكتابية**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
+      .addField('**الرومات الكتابية**',`[**${msg.guild.channels.filter(m => m.type === 'text').size}** + '** text | Voice  **'+ **${msg.guild.channels.filter(m => m.type === 'voice').size}**]`,true)
       .addField('**رومات الصوت**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
       .addField('**الأونـر**',`**${msg.guild.owner}**`,true)
       .addField('**ايدي السيرفر**',`[** __${msg.guild.id}__ **]`,true)
