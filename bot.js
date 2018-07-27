@@ -80,7 +80,6 @@ if(!message.guild) return
   }
 
 if(message.content.startsWith(prefix + `autorole`)) {
-         if(whitelisted.includes(sender.id)) {
   let perms = message.member.hasPermission(`MANAGE_ROLES`)
 
   if(!perms) return message.reply(`You don't have permissions, required permission : Manage Roles.`)
