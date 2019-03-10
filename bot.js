@@ -216,7 +216,7 @@ client.on('message', function(msg) {
             text = co.first().content
 
               message.channel.send(`تم حفظ اقتراحك الرجاء انتضار الرد من قبل الاداره`)
-                client.channels.get("470260449074741249").send(`${message.author.username}'s sug => ${text}`)
+                client.channels.get("554163930667417641").send(`${message.author.username}'s sug => ${text}`)
 
               })
             }
@@ -246,7 +246,7 @@ ${prefix}games ⥨ اوامر الالعاب
 
 ${prefix}music ⥨ اوامر الموسيقى
 
-Other Commands:
+Other Commands:https://discordapp.com/api/oauth2/authorize?client_id=554262633398927380&permissions=8&scope=bot
 
 
 ${prefix}invite ⥨ لدعوة البوت الى سيرفرك
@@ -304,7 +304,7 @@ client.on('guildCreate', guild => {
          const embed = new Discord.RichEmbed()
      .setColor("RED")
      .setTitle('Click Here To The Add Bot .!')
-     .setURL('https://discordapp.com/oauth2/authorize?client_id=456934284566069248&permissions=8&scope=bot')
+     .setURL('https://discordapp.com/api/oauth2/authorize?client_id=554262633398927380&permissions=8&scope=bot')
   .setDescription(`**
   Someone Added Me ✅
 اسم السيرفر: ${guild.name}
@@ -316,12 +316,12 @@ client.on('guildDelete', guild => {
          const embed = new Discord.RichEmbed()
      .setColor("GOLD")
      .setTitle('Click Here To The Add Bot .!')
-     .setURL('https://discordapp.com/oauth2/authorize?client_id=456934284566069248&permissions=8&scope=bot')
+     .setURL('https://discordapp.com/api/oauth2/authorize?client_id=554262633398927380&permissions=8&scope=bot')
   .setDescription(`**
   I Got Kicked :cry:
 اسم السيرفر: ${guild.name}
 صاحب السيرفر: ${guild.owner}**`);
-client.channels.get("470259562121920512").sendEmbed(embed)
+client.channels.get("545624279513825332").sendEmbed(embed)
 });
 
 
@@ -329,7 +329,7 @@ client.channels.get("470259562121920512").sendEmbed(embed)
 
 client.on('ready', function(){
     var ms = 10000 ;
-    var setGame = ['In 77 Server','*help | *invite','In 77 Server','*help | *invite','In 77 Server'];
+    var setGame = ['In 77 Server','by jak *help];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -455,7 +455,7 @@ client.on('message', message => {
 
 
 client.on('message', function(message) {
-	const myID = "244888652004458497";
+	const myID = "545624279513825332";
     let args = message.content.split(" ").slice(1).join(" ");
     if(message.content.startsWith(prefix + "setname")) {
 		        if(message.author.id !== myID) return;
@@ -596,7 +596,7 @@ let args = message.content.split(" ").slice(1).join(" ");
 
 
 
-client.users.get("244888652004458497").send(
+client.users.get("554265420287180829").send(
     "\n" + "**" + "● السيرفر :" + "**" +
     "\n" + "**" + "» " + message.guild.name + "**" +
     "\n" + "**" + " ● المرسل : " + "**" +
